@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intubation</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+    
+  <div class="container">
+    <div class="form-section">
+        <h2 class="title">ED Observation Daily Progress Note</h2>
+        
+        <div data-section="date" data-display = "false">
+            <h3>ED Obs Eval Date</h3>
+            <textarea data-default="date"></textarea>
+        </div>
+
+        <div data-section="time" data-display = "false">
+            <h3>ED Obs Eval Time</h3>
+            <button data-action="time-now">Now</button>
+            <textarea></textarea>
+        </div>
+
+        <br>
+        
+        <div data-section="is">
+            <h3>The patient is</h3>             
+            <textarea></textarea>
+        </div>
+        <div data-section="reveal">
+            <h3>Exam reveals</h3>             
+            <textarea></textarea>
+        </div>
+        <div data-section="plan">
+            <h3>Current plan is</h3>             
+            <textarea></textarea>
+        </div>
+        
+
+    </div>
+
+ <div class="output-section">
+        <div id="outputArea"></div>
+        <button onclick="copyOutput();">Copy to Clipboard</button>
+        <button onclick="clearOutput()">Clear</button>
+    </div>
+</div>
+
+     <footer>
+    </footer>
+
+<script src="jstest/general.js"></script>
+<script src="jstest/shared.js"></script>
+<script>
+    NOTE_INTRO = 'The patient remains in Observation status; was re-evaluated on {{date}} at {{time}}.'
+</script>
+</body>
+</html>

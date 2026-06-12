@@ -16,83 +16,72 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Arterial Line</h2>
+            <h2 class="title">Procedure Note: Arterial Line</h2>
             
             <!-- Consent Section -->
-            <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="Consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family is given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="Consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="Consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained, patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="Consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained, family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="ConsentText" placeholder="" onchange="updateRealTimeText('Consent', 'ConsentText')"></textarea>
-            </div>
+
+            <div data-section="consent"></div>
 
             <!-- Indication Section -->
-            <div class="input-group">
+
+            <div data-section="Indication">
                 <h3>Indication</h3>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'hypotension')">hypotension</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'use of pressors requiring accurate blood pressure monitoring')">pressors</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'emergent antihypertensive use requiring accurate blood pressure monitoring')">antihypertensive management</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'intracranial hemorrhage management requiring accurate blood pressure management')">intracranial hemorrhage</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'management of acute aortic dissection requiring accurate blood pressure management')">dissection</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'the patient was critically ill requiring frequent and accurate blood pressure management')">critical care</button>
-                <textarea id="IndicationText" placeholder="" onchange="updateRealTimeText('Indication', 'IndicationText')"></textarea>
+                <button data-text="hypotension">hypotension</button>
+                <button data-text="use of pressors requiring accurate blood pressure monitoring">pressors</button>
+                <button data-text="emergent antihypertensive use requiring accurate blood pressure monitoring">antihypertensive management</button>
+                <button data-text="intracranial hemorrhage management requiring accurate blood pressure management">intracranial hemorrhage</button>
+                <button data-text="management of acute aortic dissection requiring accurate blood pressure management">dissection</button>
+                <button data-text="the patient was critically ill requiring frequent and accurate blood pressure management">critical care</button>
+                <textarea></textarea>
             </div>
 
-            <!-- Location Section -->
-            <div class="input-group">
+            <div data-section="Location">
                 <h3>Location</h3>
-                <button data-section="Location" onclick="handleButtonClick(this, 'right')">right</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'left')">left</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'radial artery')">radial</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'brachial artery')">brachial</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'axillary artery')">axillary</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'femoral artery')">femoral</button>
-                <textarea id="LocationText" placeholder="" onchange="updateRealTimeText('Location', 'LocationText')"></textarea>
+                <button data-text="right">right</button>
+                <button data-text="left">left</button>
+                <button data-text="radial artery">radial</button>
+                <button data-text="brachial artery">brachial</button>
+                <button data-text="axillary artery">axillary</button>
+                <button data-text="femoral artery">femoral</button>
+                <textarea></textarea>
             </div>
-
-            <!-- Ultrasound Section -->
-            <div class="input-group">
+            
+            <div data-section="Ultrasound">
                 <h3>Ultrasound</h3>
-                <button data-section="Ultrasound" onclick="handleButtonClick(this, 'dynamic ultrasound was used to visualize the vessel and help guide needle placement')">US used</button>
-                <button data-section="Ultrasound" onclick="handleButtonClick(this, 'Anatomic landmarks were used to identify the appropriate position for needle insertion and appropriate arterial blood flow was confirmed prior to securing the catheter')">US not used</button>
-                <textarea id="UltrasoundText" placeholder="" onchange="updateRealTimeText('Ultrasound', 'UltrasoundText')"></textarea>
+                <button data-text="dynamic ultrasound was used to visualize the vessel and help guide needle placement">US used</button>
+                <button data-text="Anatomic landmarks were used to identify the appropriate position for needle insertion and appropriate arterial blood flow was confirmed prior to securing the catheter">US not used</button>
+                <textarea></textarea>
             </div>
-
-            <!-- Technique Section -->
-            <div class="input-group">
+            
+            <div data-section="Technique">
                 <h3>Technique</h3>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the patient is prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure')">sterile prep/drape</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the procedural area is anesthetized with lidocaine prior to the procedure')">lidocaine</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'an arm board was placed to help stabilize the target artery')">arm board</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a negative Allen’s test was performed prior to radial artery cannulation to confirm good collateral blood flow')">neg Allen’s test</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a needle was inserted into the artery. Arterial blood was seen to pulsate in the flash chamber. The guidewire was advanced easily into the artery. The needle was withdrawn and the catheter was then advanced over the wire. The catheter was secured and a sterile dressing was placed.')">needle-wire-catheter</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'an integrated arterial catheter was inserted into the artery. Arterial blood was seen to pulsate in the flash chamber. The internal guidewire was advanced easily into the artery. The catheter was then advanced over the wire and the needle and wire were withdrawn. The catheter was sutured in place.')">integrated arterial catheter</button>
-                <textarea id="TechniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'TechniqueText')"></textarea>
+                <button data-text="the patient is prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure">sterile prep/drape</button>
+                <button data-text="the procedural area is anesthetized with lidocaine prior to the procedure">lidocaine</button>
+                <button data-text="an arm board was placed to help stabilize the target artery">arm board</button>
+                <button data-text="a negative Allen’s test was performed prior to radial artery cannulation to confirm good collateral blood flow">neg Allen’s test</button>
+                <button data-text="a needle was inserted into the artery. Arterial blood was seen to pulsate in the flash chamber. The guidewire was advanced easily into the artery. The needle was withdrawn and the catheter was then advanced over the wire. The catheter was secured and a sterile dressing was placed.">needle-wire-catheter</button>
+                <button data-text="an integrated arterial catheter was inserted into the artery. Arterial blood was seen to pulsate in the flash chamber. The internal guidewire was advanced easily into the artery. The catheter was then advanced over the wire and the needle and wire were withdrawn. The catheter was sutured in place.">integrated arterial catheter</button>
+                <textarea></textarea>
             </div>
-
-            <!-- Confirmation Section -->
-            <div class="input-group">
+            
+            <div data-section="Confirmation">
                 <h3>Confirmation</h3>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'an appropriate waveform was noted on the monitor following pressure transduction')">good waveform</button>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'an ABG was easily drawn from the attached catheter consistent with an arterial placement')">blood draw</button>
-                <textarea id="ConfirmationText" placeholder="" onchange="updateRealTimeText('Confirmation', 'ConfirmationText')"></textarea>
+                <button data-text="an appropriate waveform was noted on the monitor following pressure transduction">good waveform</button>
+                <button data-text="an ABG was easily drawn from the attached catheter consistent with an arterial placement">blood draw</button>
+                <textarea></textarea>
             </div>
-
-            <!-- Complications Section -->
-            <div class="input-group">
+            
+            <div data-section="Complications">
                 <h3>Complications</h3>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the patient experienced pain despite anesthetic application and/or procedural sedation')">pain</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the arterial line was not able to be correctly placed')">unsuccessful procedure</button>
-                <textarea id="ComplicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'ComplicationsText')"></textarea>
+                <button data-text="none">none</button>
+                <button data-text="the patient experienced pain despite anesthetic application and/or procedural sedation">pain</button>
+                <button data-text="the arterial line was not able to be correctly placed">unsuccessful procedure</button>
+                <textarea></textarea>
             </div>
-
-            <!-- Provider Section -->
-            <div class="input-group">
+            
+            <div data-section="provider">
                 <h3>Provider</h3>
-                <textarea id="ProviderText" placeholder="" onchange="updateRealTimeText('Provider', 'ProviderText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
@@ -107,6 +96,11 @@
     <footer>
     </footer>
 
-    <script src="js/arteriallinescript.js"></script>
+    <script src="jstest/general.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('consent');
+    </script>
+
 </body>
 </html>

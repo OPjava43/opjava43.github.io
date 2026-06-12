@@ -19,103 +19,98 @@
             <h2>Procedure Note: Procedural Sedation</h2>
             
             <!-- Consent Section -->
-            <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="Consent" onclick="btnClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="Consent" onclick="btnClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="Consent" onclick="btnClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="Consent" onclick="btnClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="ConsentText" data-section="Consent" placeholder="" onchange="updateText(this)"></textarea>
+            <div data-section="Consent">
+                <div data-section="consent"></div>
             </div>
             
-            <div class="input-group">
+            <div data-section="Timeout">
                 <h3>Timeout</h3>
-                <button data-section="Timeout" onclick="btnClick(this, 'pre-procedure time out was performed and standard protocol/checklist was utilized as permitted by time/acuity.')">protocol/checklist</button>
-                <button data-section="Timeout" onclick="btnClick(this, 'A formal timeout was deferred given the emergent nature of the procedure')">emergent</button>
-                <textarea id="timeoutText" data-section="Timeout" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="pre-procedure time out was performed and standard protocol/checklist was utilized as permitted by time/acuity.">protocol/checklist</button>
+                <button data-text="A formal timeout was deferred given the emergent nature of the procedure">emergent</button>
+                <textarea></textarea>
             </div>
 
             <!-- Indication Section -->
-            <div class="input-group">
+            <div data-section="Indication">
                 <h3>Indication</h3>
-                <button data-section="Indication" onclick="btnClick(this, 'fracture reduction')">fracture reduction</button>
-                <button data-section="Indication" onclick="btnClick(this, 'dislocation reduction')">dislocation reduction</button>
-                <button data-section="Indication" onclick="btnClick(this, 'cardioversion')">cardioversion</button>
-                <button data-section="Indication" onclick="btnClick(this, 'laceration repair')">laceration repair</button>
-                <textarea id="IndicationText" data-section="Indication" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="fracture reduction">fracture reduction</button>
+                <button data-text="dislocation reduction">dislocation reduction</button>
+                <button data-text="cardioversion">cardioversion</button>
+                <button data-text="laceration repair">laceration repair</button>
+                <textarea></textarea>
             </div>
 
             <!-- Pre-sedation Assessment Section -->
-            <div class="input-group">
+            <div data-section="Pre-sedation assessment">
                 <h3>Pre-sedation assessment</h3>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'Mallampati I')">Mallampati I</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'Mallampati II')">Mallampati II</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'Mallampati III')">Mallampati III</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'Mallampati IV')">Mallampati IV</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'ASA I (healthy patient with minimal risk)')">ASA I</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'ASA II (a patient with mild systemic disease)')">ASA II</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'ASA III (a patient with severe systemic disease that is not incapacitating)')">ASA III</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'ASA IV (a patient with incapacitating disease that is a constant threat to live)')">ASA IV</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'ASA V (a moribund patient who is not expected to live 24 hours or more with or without surgery)')">ASA V</button>
-                <button data-section="Pre-sedation assessment" onclick="btnClick(this, 'patient’s last PO intake was noted and considered during procedural planning')">last PO noted</button>
-                <textarea id="PreSedationAssessmentText" data-section="Pre-sedation assessment" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="Mallampati I">Mallampati I</button>
+                <button data-text="Mallampati II">Mallampati II</button>
+                <button data-text="Mallampati III">Mallampati III</button>
+                <button data-text="Mallampati IV">Mallampati IV</button>
+                <button data-text="ASA I (healthy patient with minimal risk)">ASA I</button>
+                <button data-text="ASA II (a patient with mild systemic disease)">ASA II</button>
+                <button data-text="ASA III (a patient with severe systemic disease that is not incapacitating)">ASA III</button>
+                <button data-text="ASA IV (a patient with incapacitating disease that is a constant threat to live)">ASA IV</button>
+                <button data-text="ASA V (a moribund patient who is not expected to live 24 hours or more with or without surgery)">ASA V</button>
+                <button data-text="patient’s last PO intake was noted and considered during procedural planning">last PO noted</button>
+                <textarea></textarea>
             </div>
 
             <!-- Preparation/Monitoring Section -->
-            <div class="input-group">
+            <div data-section="Preparation/monitoring">
                 <h3>Preparation/monitoring</h3>
-                <button data-section="Preparation/monitoring" onclick="btnClick(this, 'respiratory therapy was at bedside with appropriate equipment including a BMV, suction, and resuscitation equipment')">RT/equipment</button>
-                <button data-section="Preparation/monitoring" onclick="btnClick(this, 'patient was placed on supplemental oxygen and monitored via pulse oximetry during the course of the sedation')">O2/pulse oximetry</button>
-                <button data-section="Preparation/monitoring" onclick="btnClick(this, 'end tidal capnography waveform was monitored during the procedure')">ETCO2 waveform</button>
-                <button data-section="Preparation/monitoring" onclick="btnClick(this, 'patient was monitored on continuous telemetry')">telemetry</button>
-                <textarea id="PreparationMonitoringText" data-section="Preparation/monitoring" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="respiratory therapy was at bedside with appropriate equipment including a BMV, suction, and resuscitation equipment">RT/equipment</button>
+                <button data-text="patient was placed on supplemental oxygen and monitored via pulse oximetry during the course of the sedation">O2/pulse oximetry</button>
+                <button data-text="end tidal capnography waveform was monitored during the procedure">ETCO2 waveform</button>
+                <button data-text="patient was monitored on continuous telemetry">telemetry</button>
+                <textarea></textarea>
             </div>
 
             <!-- Medication Section -->
-            <div class="input-group">
+            <div data-section="Medication">
                 <h3>Medication</h3>
-                <button data-section="Medication" onclick="btnClick(this, 'ketamine')">ketamine</button>
-                <button data-section="Medication" onclick="btnClick(this, 'propofol')">propofol</button>
-                <button data-section="Medication" onclick="btnClick(this, 'etomidate')">etomidate</button>
-                <button data-section="Medication" onclick="btnClick(this, 'midazolam')">midazolam</button>
-                <button data-section="Medication" onclick="btnClick(this, 'fentanyl')">fentanyl</button>
-                <button data-section="Medication" onclick="btnClick(this, 'medications were administered by myself')">provider admin</button>
-                <button data-section="Medication" onclick="btnClick(this, 'medications were administered by the RN at bedside')">RN admin</button>
-                <textarea id="MedicationText" data-section="Medication" placeholder="Document the total dosage of sedative used here" onchange="updateRealTimeText(this)"></textarea>
+                <button data-text="ketamine">ketamine</button>
+                <button data-text="propofol">propofol</button>
+                <button data-text="etomidate">etomidate</button>
+                <button data-text="midazolam">midazolam</button>
+                <button data-text="fentanyl">fentanyl</button>
+                <button data-text="medications were administered by myself">provider admin</button>
+                <button data-text="medications were administered by the RN at bedside">RN admin</button>
+                <textarea placeholder="Document the total dosage of sedative used here"></textarea>
             </div>
 
             
             <!-- Complications Section -->
-            <div class="input-group">
+            <div data-section="Complications">
                 <h3>Complications</h3>
-                <button data-section="Complications" onclick="btnClick(this, 'none')">none</button>
-                <button data-section="Complications" onclick="btnClick(this, 'the patient experienced hypoxia during procedural sedation requiring supplemental oxygen')">hypoxia</button>
-                <button data-section="Complications" onclick="btnClick(this, 'the patient experienced decreased respiratory effort requiring BVM ventilation')" >positive pressure ventilation</button>
-                <textarea id="ComplicationsText" data-section="Complications" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="none">none</button>
+                <button data-text="the patient experienced hypoxia during procedural sedation requiring supplemental oxygen">hypoxia</button>
+                <button data-text="the patient experienced decreased respiratory effort requiring BVM ventilation" >positive pressure ventilation</button>
+                <textarea></textarea>
             </div>
 
             <!-- Post-procedure Assessment Section -->
-            <div class="input-group">
+            <div data-section="Post-procedure assessment">
                 <h3>Post-procedure assessment</h3>
-                <button data-section="Post-procedure assessment" onclick="btnClick(this, 'following the sedation, the patient was awake, alert, oriented and with normal vital signs')">AAO nl VS</button>
-                <textarea id="PostProcedureAssessmentText" data-section="Post-procedure assessment" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="following the sedation, the patient was awake, alert, oriented and with normal vital signs">AAO nl VS</button>
+                <textarea></textarea>
             </div>
 
             <!-- Total Time Spent at Bedside Section -->
-            <div class="input-group">
+            <div data-section="timeatbedside">
                 <h3>Total time spent at bedside</h3>
-                <button data-section="Total time spent at bedside" onclick="btnClick(this, '15 minutes')">15 min</button>
-                <button data-section="Total time spent at bedside" onclick="btnClick(this, '20 minutes')">20 min</button>
-                <button data-section="Total time spent at bedside" onclick="btnClick(this, '25 minutes')">25 min</button>
-                <button data-section="Total time spent at bedside" onclick="btnClick(this, '30 minutes')">30 min</button>
-                <button data-section="Total time spent at bedside" onclick="btnClick(this, '35 minutes')">35 min</button>
-                <textarea id="TotalTimeSpentText" data-section="Total time spent at bedside" placeholder="" onchange="updateText(this)"></textarea>
+                <button data-text="15 minutes">15 min</button>
+                <button data-text="20 minutes">20 min</button>
+                <button data-text="25 minutes">25 min</button>
+                <button data-text="30 minutes">30 min</button>
+                <button data-text="35 minutes">35 min</button>
+                <textarea></textarea>
             </div>
 
             <!-- Provider Section -->
-            <div class="input-group">
+            <div data-section="Provider">
                 <h3>Provider</h3>
-                <textarea id="ProviderText" data-section="Provider" placeholder="" onchange="updateText(this)"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
@@ -126,7 +121,7 @@
             <button onclick="clearOutput()">Clear</button>
             
             <!-- New Note Section -->
-                            <p><i>Note</i>: Performing and documenting consent, timeout, and any complications are part of the BlueWater procedural sedation quality bundle.<br>
+            <p><i>Note</i>: Performing and documenting consent, timeout, and any complications are part of the BlueWater procedural sedation quality bundle.<br></p>
 
 
             <div class="reminder-link">
@@ -135,9 +130,10 @@
                     <a href="Cardioversion.html">Cardioversion</a>
                     <a href="Chesttube.html">Chest Tube</a>
                     <a href="Dislocation.html">Dislocation</a>
-                
+                </p>
                 <p>For reminders on procedural sedation billing, please press this link: 
-                <a href="img/procedural_sedation.jpg" target="_blank">Procedural Sedation Billing Tips</a></p>
+                <a href="img/procedural_sedation.jpg" target="_blank">Procedural Sedation Billing Tips</a>
+                </p>
             </div>
         </div>
     </div>
@@ -146,23 +142,6 @@
     </footer>
 
     <script src="jstest/general.js"></script>
-    <script>
-    SECTIONS = [
-        'Consent',
-        'Timeout',
-        'Indication',
-        'Pre-sedation assessment',
-        'Preparation/monitoring',
-        'Medication',
-        'Complications',
-        'Post-procedure assessment',
-        'Total time spent at bedside',
-        'Provider']
-    outputArea = document.getElementById('outputArea');
-    NOTE_HEADING = 'Procedure Note: Procedural Sedation'
-    NOTE_INTRO = ''
-
-    </script>
 
 </body>
 </html>

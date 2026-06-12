@@ -1,6 +1,6 @@
 // Define the Foreign Body Removal sections object to store the pressed button values
 let foreignBodySections = {
-    'Consent': [],
+    'consent': [],
     'Location': [],
     'Object type': [],
     'Imaging if applicable': [],
@@ -72,7 +72,7 @@ function updateForeignBodyOutput() {
 function clearOutput() {
     // Reset all sections
     foreignBodySections = {
-        'Consent': [],
+        'consent': [],
         'Location': [],
         'Object type': [],
         'Imaging if applicable': [],

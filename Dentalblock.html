@@ -19,12 +19,7 @@
             <h2>Procedure Note: Dental Block</h2>
             
             <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient and they verbally agree to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
+                <div data-section="proc_consent"></div>
 
                 <h3>Indication</h3>
                 <button data-section="indication" onclick="handleButtonClick(this, 'acute dental pain requiring regional anesthesia')">dental pain</button>
@@ -93,5 +88,9 @@
     </footer>
 
     <script src="js/dentalblockscript.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('proc_consent');
+    </script>
 </body>
 </html>

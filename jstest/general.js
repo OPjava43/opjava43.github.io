@@ -1,34 +1,84 @@
 
 
-let SECTIONS = [];
+const SECTIONS = [...document.querySelectorAll('[data-section]')]
+    .map(el => el.dataset.section);
 
-let outputArea;
-let NOTE_HEADING = '';
+const outputArea = document.getElementById('outputArea');
+const NOTE_HEADING = document.querySelector('.title')?.textContent ?? '';
 let NOTE_INTRO = '';
 
 const state = {};
 const textState = {};     // strings — for textareas
 
-function btnClick(btn, text) {
-    const section = btn.dataset.section;
-    if (!state[section])state[section] = new Set();
-    state[section].has(text) ? state[section].delete(text) : state[section].add(text);
-    btn.classList.toggle('pressed');
-    render();
-}
-function defaltSet(id) {
-    btn = document.getElementById(id)
-    btn.click();
-}
-function togglegroup(btn, text) {
-    const section = btn.dataset.section;
-    const pressed = document.querySelector(`[data-section="${section}"].pressed`);
-    if (pressed) pressed.click();
-    btnClick(btn, text)
+function getSection(el) {
+    return el.closest('[data-section]')?.dataset.section;
 }
 
+function defaltSet(id) {
+    const btn = document.getElementById(id);
+    btnClick(btn);
+}
+
+function btnClick(btn) {
+    const section = getSection(btn);
+    // Fall back to data-text if text not passed directly
+    const value = btn.dataset.text;
+
+    if (!value) return;
+    if (!state[section]) state[section] = new Set();
+ 
+    const added = btn.classList.toggle('pressed');
+    added ? state[section].add(value) : state[section].delete(value);
+    render();
+}
+
+
+function togglegroup(btn) {
+    const section = getSection(btn);
+    const currentlyPressed = document.querySelector(
+        `[data-section="${section}"] button.pressed`
+    );
+    if (currentlyPressed && currentlyPressed !== btn) {
+        currentlyPressed.classList.remove('pressed');
+        const val = currentlyPressed.dataset.text;
+        state[section]?.delete(val);
+    }
+    btnClick(btn);
+}
+
+function timeNow(btn) {
+    const section = getSection(btn);
+    const textarea =  document.querySelector(
+        `[data-section="${section}"] textarea`
+    );
+    const now = new Date();
+    // 24-hour HH:MM format
+    const formattedTime = now.toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    // 1) Put time into the textarea
+    if (textarea) {
+        textarea.value = formattedTime;
+        updateText(textarea)
+    }
+
+}
+
+const today = new Date().toLocaleDateString('en-US', {
+    month: 'numeric',
+    day: 'numeric', 
+    year: 'numeric'
+});
+
+document.querySelectorAll('textarea[data-default="date"]').forEach(ta => {
+    ta.value = today;
+});
+
 function updateText(textarea) {
-    const section = textarea.dataset.section;
+    const section = getSection(textarea);
     textState[section] = textarea.value.trim();
     render();
 }
@@ -36,52 +86,65 @@ function updateText(textarea) {
 function render() {
     const lines = SECTIONS
         .map(section => {
+            const sectionEl = document.querySelector(`[data-section="${section}"]`);
+            if (sectionEl?.dataset.display === 'false') return;
+
             const buttons = state[section] ? [...state[section]] : [];
             const freetext = textState[section] || '';
-            
+            const title = document.querySelector(`[data-section="${section}"] h3`)?.textContent;
             // Combine both sources, drop empty strings
             const val = [...buttons, freetext].filter(Boolean).join(', ');
-            //const val = state[section] instanceof Set ? [...state[section]].join(', ') : (state[section] || '');
-            return val ? `<strong>${fmt(section)}:</strong> ${val}` : '';
+            const formattedVal = fmt(val);
+            
+            return val ? `<strong>${title}:</strong> ${formattedVal}` : '';
         })
         .filter(Boolean);
 
     outputArea.innerHTML = lines.length
-        ? `<h2>${NOTE_HEADING}</h2><p>${NOTE_INTRO}</p>${lines.map(l => `<div>${l}</div>`).join('')}`
+        ? `<h2>${NOTE_HEADING}</h2><p>${fmt(NOTE_INTRO)}</p>${lines.map(l => `<div>${l}</div>`).join('')}`
         : '';
 }
 
-function fmt(section) {
-    return section.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
-            .replace(/\bCt\b/, 'CT').replace(/\bNih\b/, 'NIH').replace(/\bLvo\b/, 'LVO');
+function fmt(text) {
+    const date = document.querySelector(`[data-section="date"] textarea`)?.value;
+    const time = document.querySelector(`[data-section="time"] textarea`)?.value;
+    return text
+        .replace(/\n/g, '<br>')
+        .replace(/_([^_]+)_/g, '<u>$1</u>')
+        .replace(/{{date}}/g, date? date : '____')
+        .replace(/{{time}}/g, time? time : '____')
 }
 
 // Function to trigger macros
 
-function triggerMacro(buttonIds, macroButton) {
-    // Reset the previous state
+function triggerMacro(keys, macroBtn) {    
+    const wasPressed = macroBtn.classList.contains('pressed'); // check BEFORE clearing
     clearOutput();
+    if (!wasPressed) {
+        keys.forEach(key => {
+            const dashIndex = key.indexOf('-');
+            const section  = key.slice(0, dashIndex);
+            const label    = key.slice(dashIndex + 1);
+        
+            const match = Array.from(
+                document.querySelector(`[data-section="${section}"]`)
+                    .querySelectorAll('button')
+                ).find(btn => btn.innerText.trim() === label);
+            
+            if (match) {
+                btnClick(match);
+            } else {
+                console.warn(`Macro: no button found for section="${section}" label="${label}"`);
+            }
+        });
+        macroBtn.classList.add('pressed');
+    }
 
-    // Activate the selected macro
-    buttonIds.forEach(id => {
-        const [section, buttonText] = id.split('-');
-        const buttons = document.querySelectorAll(`[data-section="${section}"]`);
-        const matchedButton = Array.from(buttons).find(btn => btn.innerText === buttonText);
-
-        if (matchedButton) {
-            const associatedText = matchedButton.getAttribute('onclick').match(/'([^']+)'/)[1];
-            btnClick(matchedButton, associatedText);
-        } else {
-            console.warn(`Macro button not found: section=${section}, text=${buttonText}`);
-        }
-    });
-
-    // Reflect macro button state
-    if (macroButton) macroButton.classList.add('pressed');
 }
 
+// ─── Copy ────────────────────────────────────────────────────────────────────
+
 async function copyOutput() {
-    const outputArea = document.getElementById('outputArea');
     const range = document.createRange();
     range.selectNode(outputArea);
     window.getSelection().removeAllRanges();
@@ -89,12 +152,47 @@ async function copyOutput() {
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
-
+// ─── Clear ────────────────────────────────────────────────────────────────────
 function clearOutput() {
     Object.keys(state).forEach(k => delete state[k]);
+    Object.keys(textState).forEach(k => delete textState[k]);
     outputArea.innerHTML = '';
     document.querySelectorAll('.pressed').forEach(b => b.classList.remove('pressed'));
     document.querySelectorAll('textarea').forEach(t => t.value = '');
 
     if (typeof showCopyError === "function") showCopyError("");
+    
+    document.querySelectorAll('textarea[data-default="date"]').forEach(ta => {
+        ta.value = today;
+    });
 }
+
+function testFill() {
+    document.querySelectorAll('[data-text]').forEach(btn => {
+        if (!btn.classList.contains('pressed')) btn.click();
+    });
+    document.querySelectorAll('textarea').forEach(ta => {
+        ta.value = 'test text';
+        updateText(ta);
+    });
+}
+// ─── Event delegation ────────────────
+document.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+
+    if (btn.dataset.group === 'toggle') {
+        togglegroup(btn);
+    } else {
+        btnClick(btn);
+    }
+    if (btn.dataset.action === 'time-now') {
+        timeNow(btn);
+    }
+
+});
+ 
+document.addEventListener('change', e => {
+    const ta = e.target.closest('textarea');
+    if (ta) updateText(ta);
+});

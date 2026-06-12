@@ -19,119 +19,49 @@
         <h2>Ischemic Stroke Management</h2>
 
         <!-- Last Known Well Time -->
-        <div class="input-group">
+        <div data-section="well_time">
             <h3>Last Known Well Time</h3>
-            <textarea
-                data-section="last_known_well_time"
-                placeholder="Please document the patient’s last known well time"
-                onchange="updateText(this)">
-            </textarea>
+            <textarea placeholder="Please document the patient’s last known well time"></textarea>
         </div>
 
         <!-- NIH Score -->
-        <div class="input-group">
+        <div data-section="nih_score">
             <h3>NIH Score</h3>
-            <textarea
-                data-section="nih_score"
-                placeholder="Record NIH score here"
-                onchange="updateText(this)">
-            </textarea>
+            <textarea placeholder="Record NIH score here"></textarea>
         </div>
 
         <!-- Thrombolytics -->
-        <div class="input-group">
+        <div data-section="thrombolytics">
             <h3>Thrombolytics</h3>
-            <button
-                data-section="thrombolytics"
-                onclick="btnClick(this, 'thrombolytics were administered due to concern for acute ischemic stroke in conjunction with neurology recommendations')">
-                administered
-            </button>
+            <button data-text="thrombolytics were administered due to concern for acute ischemic stroke in conjunction with neurology recommendations">administered</button>
         </div>
 
         <!-- Contraindications -->
-        <div class="input-group">
+        <div data-section="contraindications">
             <h3>Contraindications for thrombolytics</h3>
 
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'the patient presented outside of the window for thrombolytic consideration')">
-                LKW Time
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'the patient is currently taking anticoagulant medications that are contraindications for thrombolytic')">
-                anticoagulation
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'the patient has poorly controlled hypertension')">
-                hypertension
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'thrombocytopenia was a contraindication for thrombolytic')">
-                thrombocytopenia
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'the patient has a history of intracranial bleeding which is a contraindication for thrombolytic')">
-                history of intracranial bleed
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'patient with recent surgery which is a contraindication for thrombolytic')">
-                recent surgery
-            </button>
-
-            <button data-section="contraindications"
-                onclick="btnClick(this, 'patient with a recent history of GI bleed which is a contraindication for thrombolytic')">
-                GI bleed
-            </button>
+            <button data-text="the patient presented outside of the window for thrombolytic consideration">LKW Time</button>
+            <button data-text="the patient is currently taking anticoagulant medications that are contraindications for thrombolytic">anticoagulation</button>
+            <button data-text="the patient has poorly controlled hypertension">hypertension</button>
+            <button data-text="thrombocytopenia was a contraindication for thrombolytic">thrombocytopenia</button>
+            <button data-text="the patient has a history of intracranial bleeding which is a contraindication for thrombolytic">history of intracranial bleed</button>
+            <button data-text="patient with recent surgery which is a contraindication for thrombolytic">recent surgery</button>
+            <button data-text="patient with a recent history of GI bleed which is a contraindication for thrombolytic">GI bleed</button>
         </div>
 
         <!-- Reasons for thrombolytic delay -->
-        <div class="input-group">
+        <div data-section="reasons_delay">
             <h3>Reasons for thrombolytic delay</h3>
 
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'the patient’s airway had to be secured which caused overall delays in lytic administration')">
-                airway management
-            </button>
+            <button data-text="the patient’s airway had to be secured which caused overall delays in lytic administration">airway management</button>
+            <button data-text="extensive family discussions regarding care caused delays in lytic administration">family discussion</button>
+            <button data-text="delays in patient’s blood work results caused a delay in lytic administration">lab delay</button>
+            <button data-text="delays in establishing last known well caused a delay in lytic administration">unclear LKW</button>
+            <button data-text="delays in a neurology evaluation caused a delay in lytic administration">delayed neuro eval</button>
+            <button data-text="requirement to optimize blood pressure for the patient caused a delay in lytic administration">blood pressure management</button>
+            <button data-text="delays in CT scan facilitation caused a delay in lytic administration">imaging delays</button>
 
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'extensive family discussions regarding care caused delays in lytic administration')">
-                family discussion
-            </button>
-
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'delays in patient’s blood work results caused a delay in lytic administration')">
-                lab delay
-            </button>
-
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'delays in establishing last known well caused a delay in lytic administration')">
-                unclear LKW
-            </button>
-
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'delays in a neurology evaluation caused a delay in lytic administration')">
-                delayed neuro eval
-            </button>
-
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'requirement to optimize blood pressure for the patient caused a delay in lytic administration')">
-                blood pressure management
-            </button>
-
-            <button data-section="reasons_for_thrombolytic_delay"
-                onclick="btnClick(this, 'delays in CT scan facilitation caused a delay in lytic administration')">
-                imaging delays
-            </button>
-
-            <textarea
-                data-section="reasons_for_thrombolytic_delay"
-                placeholder=""
-                onchange="updateText(this)">
-            </textarea>
+            <textarea></textarea>
         </div>
     </div>
 
@@ -143,7 +73,11 @@
 
         <div class="related-procedures">
             <p>
-                <b>Note</b>
+                <i>Note</i>: The BlueWater ischemic stroke care quality bundle has the following components for care of patients with ischemic stroke:<br>
+                1. Door to CT in 25min (15min for MCH) or less if w/in 3.5hrs (210min) LKW<br>
+                2. NIH stroke score documented<br>
+                3. Lytic w/in 60min of arrival if w/in 3.5hrs (210min) of LKW or Documented acceptable reason for not giving<br>
+                <br>
                 CMS and BlueWater both require inclusion of an NIH stroke scale for stroke care. You can find an NIH stroke scale calculator here:<br>
                 <a href="NIHSS.html">NIH Score</a><br>
                 
@@ -156,17 +90,7 @@
 
     <script src="jstest/general.js"></script>
     <script>
-        SECTIONS = [
-            'last_known_well_time',
-            'nih_score',
-            'thrombolytics',
-            'contraindications',
-            'reasons_for_thrombolytic_delay'
-        ];
-        outputArea = document.getElementById('outputArea');
-        NOTE_HEADING = 'Ischemic Stroke Management'
         NOTE_INTRO = 'Due to a concern for stroke, the following actions were conducted after arrival to the emergency department:'
-
     </script>
 
 </body>

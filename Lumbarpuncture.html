@@ -19,12 +19,7 @@
             <h2>Procedure Note: Lumbar Puncture</h2>
             
             <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
+                <div data-section="proc_consent"></div>
 
                 <h3>Indication</h3>
                 <button data-section="indication" onclick="handleButtonClick(this, 'headache')">headache</button>
@@ -85,6 +80,10 @@
      <footer>
     </footer>
 
-<script src="js/lumbarpuncture.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script src="js/lumbarpuncturescript.js"></script>
+    <script>
+        loadShared('proc_consent');
+    </script>
 </body>
 </html>

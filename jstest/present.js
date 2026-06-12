@@ -14,18 +14,11 @@ function timeNow(id) {
         updateText(textarea)
     }
 }
-function timeCheck(timebox) {
-
-    // ===== SOFT WARNING: Intubation Time missing =====
-    const timeSection = document.getElementById(timebox);
-    const timeTextSpan = timeSection ? timeSection.querySelector('.output-text') : null;
-    const timeText = timeTextSpan ? timeTextSpan.textContent.trim() : '';
-
-    if (!timeText) {
-        // Show warning, but DO NOT block copying
+function timeCheck(textareaId) {
+    const textarea = document.getElementById(textareaId);
+    if (!textarea || !textarea.value.trim()) {
         showCopyError("Please include an intubation time in your note.");
     } else {
-        // Clear any previous warning once time is present
         showCopyError("");
     }
 }

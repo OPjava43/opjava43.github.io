@@ -16,98 +16,102 @@
     
   <div class="container">
     <div class="form-section">
-        <h2>Procedure Note: Intubation</h2>
+        <h2 class="title">Procedure Note: Intubation</h2>
         
-            <!-- Intubation Time section -->
+         <div data-section="intubation_time">
             <h3>Intubation Time</h3>
-            <button data-section="intubation_time" onclick="timeNow('intubationTimeText')">Now</button>
-            <textarea id="intubationTimeText" data-section="intubation_time" placeholder="Document intubation time here" onchange="updateText(this)"></textarea>
-            
-            <div class="input-group">
+            <button onclick="timeNow('intubationTimeText')">Now</button>
+            <textarea id="intubationTimeText" placeholder="Document intubation time here"></textarea>
+        </div>
+
+        <div data-section="timeout">
             <h3>Timeout</h3>
-            <button data-section="timeout" onclick="btnClick(this, 'A formal timeout was deferred given the emergent nature of the intubation')">emergent</button>
-            <button data-section="timeout" onclick="btnClick(this, 'pre-procedure time out was performed and standard protocol/checklist was utilized as permitted by time/acuity')">protocol/checklist</button>
-            <textarea data-section="timeout" placeholder="" onchange="updateText(this)"></textarea>
+            <button data-text="A formal timeout was deferred given the emergent nature of the intubation">emergent</button>
+            <button data-text="pre-procedure time out was performed and standard protocol/checklist was utilized as permitted by time/acuity">protocol/checklist</button>
+            <textarea placeholder="" ></textarea>
+        </div>
 
+        <div data-section="indication">
             <h3>Indication</h3>
-            <button data-section="indication" onclick="btnClick(this, 'airway protection')">airway protection</button>
-            <button data-section="indication" onclick="btnClick(this, 'respiratory failure')">resp failure</button>
-            <textarea data-section="indication" placeholder="" onchange="updateText(this)"></textarea>
-            
-            <h3>Consent</h3>
-            <button data-section="consent" onclick="btnClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. Patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-            <button data-section="consent" onclick="btnClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-            <button data-section="consent" onclick="btnClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-            <button data-section="consent" onclick="btnClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-            <textarea data-section="consent" placeholder="" onchange="updateText(this)"></textarea>
-            
+            <button data-text="airway protection">airway protection</button>
+            <button data-text="respiratory failure">resp failure</button>
+            <textarea placeholder=""></textarea>
+        </div> 
+        
+        <div data-section="consent"></div> 
+           
+        <div data-section="assessment">
             <h3>Assessment</h3>
-            <button data-section="assessment" onclick="btnClick(this, 'the patient\'s last oral intake was noted')">last oral intake noted</button>
-            <button data-section="assessment" onclick="btnClick(this, 'Mallampati 1')">Mallampati 1</button>
-            <button data-section="assessment" onclick="btnClick(this, 'Mallampati 2')">Mallampati 2</button>
-            <button data-section="assessment" onclick="btnClick(this, 'Mallampati 3')">Mallampati 3</button>
-            <button data-section="assessment" onclick="btnClick(this, 'Mallampati 4')">Mallampati 4</button>
-            <button data-section="assessment" onclick="btnClick(this, 'discussed and documented prior history of anesthetic complications')">prior anesthesia history</button>
-            <textarea data-section="assessment" placeholder="" onchange="updateText(this)"></textarea>
-            
+            <button data-text="the patient\'s last oral intake was noted">last oral intake noted</button>
+            <button data-text="Mallampati 1">Mallampati 1</button>
+            <button data-text="Mallampati 2">Mallampati 2</button>
+            <button data-text="Mallampati 3">Mallampati 3</button>
+            <button data-text="Mallampati 4">Mallampati 4</button>
+            <button data-text="discussed and documented prior history of anesthetic complications">prior anesthesia history</button>
+            <textarea placeholder=""></textarea>
+        </div> 
+        
+        <div data-section="preparation">
             <h3>Preparation</h3>
-            <button data-section="preparation" onclick="btnClick(this, 'patient was placed in appropriate positioning and was placed on the monitor with pulse oximetry and end-tidal CO2')">position/monitor</button>
-            <button data-section="preparation" onclick="btnClick(this, 'all equipment was verified including intubating equipment, suction, BMV, and adjunct equipment')">equipment</button>
-            <textarea data-section="preparation" placeholder="" onchange="updateText(this)"></textarea>
-
-            
+            <button data-text="patient was placed in appropriate positioning and was placed on the monitor with pulse oximetry and end-tidal CO2">position/monitor</button>
+            <button data-text="all equipment was verified including intubating equipment, suction, BMV, and adjunct equipment">equipment</button>
+            <textarea placeholder=""></textarea>
+        </div>
+        
+        <div data-section="medications">
             <h3>Medications</h3>
-            <button data-section="medications" onclick="btnClick(this, 'ketamine was used for sedation')">ketamine</button>
-            <button data-section="medications" onclick="btnClick(this, 'etomidate was used for sedation')">etomidate</button>
-            <button data-section="medications" onclick="btnClick(this, 'propofol was used for sedation')">propofol (pre)</button>
-            <button data-section="medications" onclick="btnClick(this, 'succinycholine was used for paralytic')">succinylcholine</button>
-            <button data-section="medications" onclick="btnClick(this, 'rocuronium was used for paralytic')">rocuronium</button>
-            <button data-section="medications" onclick="btnClick(this, 'propofol was used for post-intubation sedation')">propofol (post)</button>
-            <button data-section="medications" onclick="btnClick(this, 'fentanyl was used for post-intubation analgesia')">fentanyl (post)</button>
-            <textarea data-section="medications" placeholder="" onchange="updateText(this)"></textarea>
-            
+            <button data-text="ketamine was used for sedation">ketamine</button>
+            <button data-text="etomidate was used for sedation">etomidate</button>
+            <button data-text="propofol was used for sedation">propofol (pre)</button>
+            <button data-text="succinycholine was used for paralytic">succinylcholine</button>
+            <button data-text="rocuronium was used for paralytic">rocuronium</button>
+            <button data-text="propofol was used for post-intubation sedation">propofol (post)</button>
+            <button data-text="fentanyl was used for post-intubation analgesia">fentanyl (post)</button>
+            <textarea placeholder=""></textarea>    
+        </div>
+
+        <div data-section="technique">
             <h3>Technique</h3>
-            <button data-section="technique" onclick="btnClick(this, 'video laryngoscopy was performed with a hyperangulated blade')">video hyperangulated</button>
-            <button data-section="technique" onclick="btnClick(this, 'video laryngoscopy was performed with a geometric blade')">video geometric</button>
-            <button data-section="technique" onclick="btnClick(this, 'direct laryngoscopy was performed with a geometric blade')">direct laryngoscopy</button>
-            <button data-section="technique" onclick="btnClick(this, 'a bougie was used as a tracheal introducer with the ETT passed over the bougie.')">bougie</button>
-            <button data-section="technique" onclick="btnClick(this, 'a 7.0 Fr ETT was used')">7.0 Fr ETT</button>
-            <button data-section="technique" onclick="btnClick(this, 'a 7.5 Fr ETT was used')">7.5 Fr ETT</button>
-            <button data-section="technique" onclick="btnClick(this, 'an 8.0 Fr ETT was used')">8.0 Fr ETT</button>
-            <textarea data-section="technique" placeholder="" onchange="updateText(this)"></textarea>
-
+            <button data-text="video laryngoscopy was performed with a hyperangulated blade">video hyperangulated</button>
+            <button data-text="video laryngoscopy was performed with a geometric blade">video geometric</button>
+            <button data-text="direct laryngoscopy was performed with a geometric blade">direct laryngoscopy</button>
+            <button data-text="a bougie was used as a tracheal introducer with the ETT passed over the bougie.">bougie</button>
+            <button data-text="a 7.0 Fr ETT was used">7.0 Fr ETT</button>
+            <button data-text="a 7.5 Fr ETT was used">7.5 Fr ETT</button>
+            <button data-text="an 8.0 Fr ETT was used">8.0 Fr ETT</button>
+            <textarea placeholder=""></textarea>
+        </div>  
+                
+        <div data-section="attempts">
             <h3>Attempts</h3>
-            <button data-section="attempts" id="defaltAttempts" onclick="togglegroup(this, 'Successful on 1st attempt')">1</button>
-            
-            <button data-section="attempts" onclick="togglegroup(this, 'Successful on 2nd attempt')">2</button>
-            <button data-section="attempts" onclick="togglegroup(this, 'Successful on 3rd attempt')">3</button>
-            <button data-section="attempts" onclick="togglegroup(this, 'Multiple attempts required')">Multiple attempts</button>
-            <textarea data-section="attempts" placeholder="additional details" onchange="updateText(this)"></textarea>
-
-            
+            <button data-group="toggle" data-text="Successful on 1st attempt" class="blue-toggle">1</button>
+            <button data-group="toggle" data-text="Successful on 2nd attempt">2</button>
+            <button data-group="toggle" data-text="Successful on 3rd attempt">3</button>
+            <button data-group="toggle" data-text="Multiple attempts required">Multiple attempts</button>
+            <textarea placeholder="additional details"></textarea>
+        </div>
+        
+        <div data-section="confirmation">
             <h3>Confirmation of Tube</h3>
-            <!-- CHANGED: removed inline light-blue style; added class="blue-toggle" -->
-            <button data-section="confirmation"
-                    onclick="btnClick(this, 'continuous waveform capnography was used to confirm placement')"
-                    class="blue-toggle">
-                ETCO2 waveform
-            </button>
-
-            <button data-section="confirmation" onclick="btnClick(this, 'tube was directly visualized passing through the cords')">direct visualization</button>
-            <button data-section="confirmation" onclick="btnClick(this, 'good color change on colorimetry')">color change</button>
-            <button data-section="confirmation" onclick="btnClick(this, 'symmetric breath sounds were auscultated')">breath sounds</button>
-            <button data-section="confirmation" onclick="btnClick(this, 'a chest XRay was ordered and interpreted showing correct ETT placement')">chest Xray</button>
-            <textarea data-section="confirmation" placeholder="" onchange="updateText('confirmation', this)"></textarea>
-            
+            <button data-text="continuous waveform capnography was used to confirm placement" class="blue-toggle">ETCO2 waveform</button>
+            <button data-text="tube was directly visualized passing through the cords">direct visualization</button>
+            <button data-text="good color change on colorimetry">color change</button>
+            <button data-text="symmetric breath sounds were auscultated">breath sounds</button>
+            <button data-text="a chest XRay was ordered and interpreted showing correct ETT placement">chest Xray</button>
+            <textarea placeholder="" ></textarea>
+        </div>
+        
+        <div data-section="complications">
             <h3>Complications</h3>
-            <!-- CHANGED: removed inline light-blue style; added class="blue-toggle" -->
-            <button data-section="complications" onclick="btnClick(this, 'no complications during the procedure, O2 sats above 90% and systolic BP above 90 throughout procedure')">none, O2 over 90%, SBP over 90</button>
-            <button data-section="complications" onclick="btnClick(this, 'there was hypoxia noted during the intubation with an O2 sat <90% which improved following intubation and oxygenation')">hypoxia, less than 90%</button>
-            <button data-section="complications" onclick="btnClick(this, 'the patient experienced hypotension during or following the intubation with a SBP<90')">hypotension, SBP less than 90</button>
-            <textarea data-section="complications" placeholder="additional details" onchange="updateText(this)"></textarea>
-            
+            <button data-text="no complications during the procedure, O2 sats above 90% and systolic BP above 90 throughout procedure">none, O2 over 90%, SBP over 90</button>
+            <button data-text="there was hypoxia noted during the intubation with an O2 sat <90% which improved following intubation and oxygenation">hypoxia, less than 90%</button>
+            <button data-text="the patient experienced hypotension during or following the intubation with a SBP<90">hypotension, SBP less than 90</button>
+            <textarea placeholder="additional details"></textarea>
+        </div>
+        
+        <div data-section="provider">
             <h3>Provider</h3>
-            <textarea data-section="provider" placeholder="" onchange="updateText(this)"></textarea>
+            <textarea placeholder=""></textarea>
         </div>
     </div>
 
@@ -122,6 +126,15 @@
             <button onclick="triggerMacro(['timeout-emergent', 'indication-resp failure', 'consent-emergent', 'preparation-position/monitor', 'preparation-equipment', 'medications-etomidate', 'medications-succinylcholine', 'technique-glidescope', 'technique-7.5 Fr ETT', 'attempts-1','confirmation-ETCO2 waveform', 'confirmation-chest Xray', 'confirmation-direct visualization', 'confirmation-breath sounds', 'complications-none, O2 over 90%, SBP over 90'], this)">Video 7.5</button>
             <!-- Add more macros as needed -->
         </div>
+        <div class="related-procedures">
+            <p>
+                <p><i>Note</i>: The BlueWater advanced airway care quality bundle has the following components for care of patients requiring intubation:<br>
+                1. Intubation successful on 1st attempt<br>
+                2. Waveform Capnography to confirm tube placemen<br>
+                3. No hypotension (SBP &lt;90) within 10min of intubation<br>
+                4. No hypoxia (SPO2 &lt;90%) within 10min of intubation</p>
+            </p>
+        </div>
     </div>
 </div>
 
@@ -129,26 +142,10 @@
     </footer>
 
 <script src="jstest/general.js"></script>
-    <script>
-        SECTIONS = [   
-    'intubation_time',
-    'timeout',
-    'indication',
-    'consent',
-    'assessment',
-    'preparation',
-    'medications',
-    'technique',
-    'attempts',
-    'confirmation',
-    'complications',
-    'provider'];
-
-    outputArea = document.getElementById('outputArea');
-    NOTE_HEADING = 'Procedure Note: Intubation'
-    defaltSet("defaltAttempts");
-    </script>
 <script src="jstest/present.js"></script>
-
+<script src="jstest/shared.js"></script>
+<script>
+    loadShared('consent');
+</script>
 </body>
 </html>

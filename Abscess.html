@@ -17,75 +17,73 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Abscess Incision and Drainage</h2>
-            
-            <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
-                
+            <h2 class="title">Procedure Note: Abscess Incision and Drainage</h2>
+            <div data-section="consent"></div>
+            <div data-section="location">    
                 <h3>Location</h3>
-                <button data-section="location" onclick="handleButtonClick(this, 'right')">right</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'left')">left</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'scalp')">scalp</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'forehead')">forehead</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'lip')">lip</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'chin')">chin</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'arm')">arm</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'hand')">hand</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'finger')">finger</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'chest')">chest</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'back')">back</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'abdomen')">abdomen</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'leg')">leg</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'foot')">foot</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'toe')">toe</button>
-                <textarea id="locationText" placeholder="" onchange="updateRealTimeText('Location', 'locationText')"></textarea>
-                
+                <button data-text="right">right</button>
+                <button data-text="left">left</button>
+                <button data-text="scalp">scalp</button>
+                <button data-text="forehead">forehead</button>
+                <button data-text="lip">lip</button>
+                <button data-text="chin">chin</button>
+                <button data-text="arm">arm</button>
+                <button data-text="hand">hand</button>
+                <button data-text="finger">finger</button>
+                <button data-text="chest">chest</button>
+                <button data-text="back">back</button>
+                <button data-text="abdomen">abdomen</button>
+                <button data-text="leg">leg</button>
+                <button data-text="foot">foot</button>
+                <button data-text="toe">toe</button>
+                <textarea></textarea>
+            </div>
+            <div data-section="ultrasound">    
                 <h3>Ultrasound</h3>
-                <button data-section="ultrasound" onclick="handleButtonClick(this, 'ultrasound was used to visualize the abscess prior to incision')">US used</button>
-                <textarea id="ultrasoundText" placeholder="" onchange="updateRealTimeText('Ultrasound', 'ultrasoundText')"></textarea>
-
+                <button data-text="ultrasound was used to visualize the abscess prior to incision">US used</button>
+                <textarea></textarea>
+            </div>
+            <div data-section="technique">
                 <h3>Technique</h3>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the procedural area was prepped appropriately prior to incision')">sterile procedure</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the procedural area was anesthetized with lidocaine prior to the procedure')">lido</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the procedural area was anesthetized with lidocaine/epinephrine prior to the procedure')">lido/epi</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'an 11 blade scalpel was used')">#11</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'an 10 blade scalpel was used')">#10</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'an 15 blade scalpel was used')">#15</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the abscess was deloculated')">deloculation</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the abscess pocket was irrigated with sterile saline')">irrigation</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'packing was placed into the abscess cavity')">packing</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'a loop drain was placed')">loop drain</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'wound cultures were sent to the lab for ')">cultures</button>
-                <textarea id="techniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'techniqueText')"></textarea>
-
+                <button data-text="the procedural area was prepped appropriately prior to incision">sterile procedure</button>
+                <button data-text="the procedural area was anesthetized with lidocaine prior to the procedure">lido</button>
+                <button data-text="the procedural area was anesthetized with lidocaine/epinephrine prior to the procedure">lido/epi</button>
+                <button data-text="an 11 blade scalpel was used">#11</button>
+                <button data-text="an 10 blade scalpel was used">#10</button>
+                <button data-text="an 15 blade scalpel was used">#15</button>
+                <button data-text="the abscess was deloculated">deloculation</button>
+                <button data-text="the abscess pocket was irrigated with sterile saline">irrigation</button>
+                <button data-text="packing was placed into the abscess cavity">packing</button>
+                <button data-text="a loop drain was placed">loop drain</button>
+                <button data-text="wound cultures were sent to the lab for ">cultures</button>
+                <textarea></textarea>
+            </div>
+            <div data-section="result">
                 <h3>Result</h3>
-                <button data-section="result" onclick="handleButtonClick(this, 'scant')">scant</button>
-                <button data-section="result" onclick="handleButtonClick(this, 'moderate')">moderate</button>
-                <button data-section="result" onclick="handleButtonClick(this, 'copious')">copious</button>
-                <button data-section="result" onclick="handleButtonClick(this, 'purulent')">purulent</button>
-                <button data-section="result" onclick="handleButtonClick(this, 'bloody')">bloody</button>
-                <button data-section="result" onclick="handleButtonClick(this, 'serosanguinous')">serosanguinous</button>
-                <textarea id="resultText" placeholder="Enter the volume of fluid returned here" onchange="updateRealTimeText('Result', 'resultText')"></textarea>
-
+                <button data-text="scant">scant</button>
+                <button data-text="moderate">moderate</button>
+                <button data-text="copious">copious</button>
+                <button data-text="purulent">purulent</button>
+                <button data-text="bloody">bloody</button>
+                <button data-text="serosanguinous">serosanguinous</button>
+                <textarea placeholder="Enter the volume of fluid returned here"></textarea>
+            </div>
+            <div data-section="complications">
                 <h3>Complications</h3>
-                <button data-section="complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'there was a mild amount of bleeding that was controlled at the time of procedure completion')">bleeding</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'the patient experienced pain despite anesthetic application')">pain</button>
-                <textarea id="complicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'complicationsText')"></textarea>
-
+                <button data-text="none">none</button>
+                <button data-text="there was a mild amount of bleeding that was controlled at the time of procedure completion">bleeding</button>
+                <button data-text="the patient experienced pain despite anesthetic application">pain</button>
+                <textarea></textarea>
+            </div>
+            <div data-section="provider">
                 <h3>Provider</h3>
-                <textarea id="providerText" placeholder="" onchange="updateRealTimeText('Provider', 'providerText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
             
             <p><strong>To meet criteria for a 'Complex I/D', be sure to document use of an ultrasound, deloculations, irrigation, or packing!</strong></p>
@@ -95,6 +93,10 @@
     <footer>
     </footer>
 
-    <script src="js/abscessscript.js"></script>
+    <script src="jstest/general.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('consent');
+    </script>
 </body>
 </html>

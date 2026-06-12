@@ -1,5 +1,4 @@
 
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +9,7 @@ body {
     position: relative;
 }
 
-/* Header */
+
 header {
     background-color: navy;
     color: white;
@@ -29,6 +28,7 @@ header {
     color: skyblue;
 }
 
+
 /* Image in Header */
 #header-logo {
     height: 80px; /* Adjust the size of the logo */
@@ -45,36 +45,8 @@ header h1 {
     font-size: 40px;
 }
 
-/* Navigation */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    background-color: navy;
-    overflow: hidden;
-    display: flex;
-}
 
-nav ul li {
-    display: inline;
-    color: navy;
-    margin-left: 20px;
-    padding: 8px
-}
 
-nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    background-color: navy;
-}
-
-/* Main Content Layout */
 main {
     padding: 20px;
     flex-grow: 1;
@@ -91,19 +63,9 @@ main {
     font-size: 18px
 }
 
-/* Content Sections Container */
-.content-sections {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-}
 
-/* Documentaion Macros, Clinical Decision Tools, Procedures, and Pocus Sections */
-#documentation-macros,
-#decision-tools,
-#procedures,
-#pocus {
+
+.content-section {
     background-color: #f4f4f4;
     padding: 10px;
     border: 1px solid #ccc;
@@ -113,10 +75,7 @@ main {
 }
 
 /* Remove bullets and set list to flex */
-#documentation-macros ul,
-#decision-tools ul,
-#procedures ul,
-#pocus ul {
+.content-section ul {
     list-style-type: none; /* Removes bullets */
     padding-left: 0; /* Removes any left padding */
     margin: 0; /* Removes margin */
@@ -125,55 +84,75 @@ main {
     gap: 5px; /* Adds space between items */
 }
 
-/* Remove bullets from Clinical Pathways list */
-#pathways ul {
-    list-style-type: none;
-    padding-left: 0; /* Removes any left padding */
-}
-
 /* List items styling */
-#decision-tools ul li,
-#procedures ul li,
-#pocus ul li {
+.content-section ul li {
     margin-bottom: 0; /* No margin between list items */
 }
 
-/* Link Styles for Documentation Macros, Decision Tools, Procedures, and Pocus Sections */
-#documentation-macros ul li a,
-#decision-tools ul li a,
-#procedures ul li a,
-#pocus ul li a {
+
+.content-section ul li a,
+.content-subsection ul li a {
     display: block;
     background-color: white;
     color: navy;
     border: 2px solid navy;
-    padding: 2px 5px; /* Reduced padding for a smaller button size */
-    margin: 0; /* No extra margin between buttons */
+    padding: 2px 5px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
     font-size: 16px;
-    max-width: 160px; /* Set a max-width for the buttons */
+    max-width: 160px;
 }
 
-/* Hover effect for the links */
-#documentation-macros ul li a:hover,
-#decision-tools ul li a:hover,
-#procedures ul li a:hover,
-#pocus ul li a:hover {
+.content-section ul li a:hover,
+.content-subsection ul li a:hover {
     background-color: navy;
     color: white;
 }
 
-/* Contact Section */
-#contact {
-    width: auto;
-    margin-top: 20px;
-    text-align: left;
+
+
+/* Subsection grouping inside Clinical Decision Tools */
+.content-subsection {
+    width: 100%;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    border-bottom: 2px solid black;
+    padding-bottom: 8px;
 }
 
-/* Footer */
+.content-subsection h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    padding-right: 8px;
+    white-space: nowrap;
+    border-right: 2px solid navy;
+    width: 100px;        
+    flex-shrink: 0;     
+    text-align: left; 
+}
+
+/* Make the buttons inside decision-tools subsections inherit the same styling */
+.content-subsection ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
+
+
 footer {
     background-color: navy;
     color: white;
@@ -184,85 +163,4 @@ footer {
     bottom: 0;
 }
 
-/* Form Section */
-.form-section {
-    background-color: #f4f4f4;
-    padding: 10px; /* Reduced padding for a more compact layout */
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 45%;
-}
 
-.input-group h3 {
-    margin: 5px 0; /* Reduced space above and below h3 */
-    line-height: 1.0; /* Tighter line height */
-    font-size: 14px;
-}
-
-/* Button Styles */
-button {
-    background-color: white;
-    color: navy;
-    border: 2px solid navy;
-    padding: 2px 5px; /* Smaller padding for buttons */
-    margin: 2px 0; /* Reduced space between buttons */
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 12px; /* Slightly smaller font size */
-}
-
-/* Pressed button style */
-button.pressed {
-    background-color: navy;
-    color: white;
-}
-
-textarea {
-    display: block; /* Forces the textarea to occupy a full line */
-    width: 85%;
-    margin-top: 5px; /* Reduced space above textarea */
-    padding: 5px; /* Reduced padding inside textarea */
-    font-size: 12px;
-    resize: vertical; /* Allows users to resize the textarea vertically */
-    height: 20px; /* Adjusted height for a more compact layout */
-    font-family: Arial, sans-serif;
-    line-height: 1.2; /* Tighter line height */
-}
-
-button + textarea {
-    margin-top: 5px; /* Ensures there's minimal space between the last button and the textarea */
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Output Section */
-.output-section {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 45%;
-}
-
-#outputArea {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    min-height: 150px;
-    margin-bottom: 100px;
-}
-
-.title-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;          /* space between logo and text */
-    padding: 10px;
-}
-
-.cosm-logo {
-    height: 45px;       /* adjust to your preference */
-    width: auto;
-}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intubation</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+    
+  <div class="container">
+    <div class="form-section">
+        <h2 class="title">ED Observation Initial Note</h2>
+        
+        <div data-section="date" data-display = "false">
+            <h3>ED Obs Start Date</h3>
+            <textarea data-default="date"></textarea>
+        </div>
+
+        <div data-section="time" data-display = "false">
+            <h3>ED Obs Start Time</h3>
+            <button data-action="time-now">Now</button>
+            <textarea></textarea>
+        </div>
+
+        
+        <div data-section="reason">
+            <h3>ED Obs Reasons</h3>
+            <button data-text= "&#10;_PSYCHOSOCIAL_ The patient was placed in Observation status on {{date}} at {{time}} for acute behavioral health and safety needs.  Requires stabilization with environmental, crisis and medication interventions and reassessment for disposition.">PSYCHOSOCIAL</button>
+             
+            <button data-text="&#10;_Case Management/Physical Therapy_ The patient was placed in Observation status on {{date}} at {{time}} for acute functional decompensation requiring ongoing treatment, safety watch, and assessment by physical therapy and/or case management to determine a safe disposition">Case Management/PT</button>
+
+            <button data-text="&#10;_INTOXICATION_ The patient was placed in Observation status on {{date}} at {{time}} for acute intoxication requiring ongoing treatment and reassessment of mental status, airway control and ability to care for self.">INTOXICATION</button>
+
+            <button data-text="&#10;_RESPIRATORY_ The patient was placed in Observation status on {{date}} at {{time}} for acute respiratory compromise requiring prolonged nebulizer treatments, systemic steroids, and repeated reassessments for disposition determination.">RESPIRATORY</button>
+
+            <button data-text="&#10;_TRANSFUSION_ The patient was placed in Observation status on {{date}} at {{time}} for acute, severe anemia requiring blood transfusion and ongoing reassessments">TRANSFUSION</button>
+
+            <button data-text="&#10;_VOMITING_ The patient was placed in Observation status on {{date}} at {{time}} for acute and severe hyperemesis treatment and management requiring resuscitation with IV fluids, repeated doses of antiemetics, and monitoring for hydration status and clinical improvement to determine disposition">VOMITING</button>            
+            
+            <textarea placeholder="" ></textarea>
+
+        </div>
+        
+
+    </div>
+
+ <div class="output-section">
+        <div id="outputArea"></div>
+        <button onclick="copyOutput();">Copy to Clipboard</button>
+        <button onclick="clearOutput()">Clear</button>
+    </div>
+</div>
+
+     <footer>
+    </footer>
+
+<script src="jstest/general.js"></script>
+<script src="jstest/shared.js"></script>
+</body>
+</html>

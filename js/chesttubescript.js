@@ -1,5 +1,5 @@
 let chestTubeSections = {
-    'Consent': [],
+    'consent': [],
     'Indication': [],
     'Preparation': [],
     'Technique': [],
@@ -51,7 +51,7 @@ function updateChestTubeOutput() {
 
 function clearOutput() {
     chestTubeSections = {
-        'Consent': [],
+        'consent': [],
         'Indication': [],
         'Preparation': [],
         'Technique': [],

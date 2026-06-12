@@ -21,12 +21,7 @@
             
             <!-- Consent Section -->
             <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'consent not obtained, family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
+                <div data-section="proc_consent"></div>
             </div>
 
             <!-- Location/Type Section -->
@@ -127,5 +122,9 @@
     </footer>
 
     <script src="js/dislocationscript.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('proc_consent');
+    </script>
 </body>
 </html>

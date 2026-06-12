@@ -1,6 +1,6 @@
 // Define the Fracture Reduction sections object to store the pressed button values
 let fractureReductionSections = {
-    'Consent': [],
+    'consent': [],
     'Location': [],
     'Fracture Type': [],
     'Pre-test Exam': [],
@@ -88,7 +88,7 @@ function updateFractureReductionOutput() {
 function clearOutput() {
     // Reset all sections
     fractureReductionSections = {
-        'Consent': [],
+        'consent': [],
         'Location': [],
         'Fracture Type': [],
         'Pre-test Exam': [],

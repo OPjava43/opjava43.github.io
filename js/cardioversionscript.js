@@ -1,6 +1,6 @@
 // Define the Cardioversion sections object to store the pressed button values
 let cardioversionSections = {
-    'Consent': [],
+    'consent': [],
     'Indication': [],
     'Technique': [],
     'Post-procedure': [],
@@ -70,7 +70,7 @@ function updateCardioversionOutput() {
 function clearOutput() {
     // Reset all sections
     cardioversionSections = {
-        'Consent': [],
+        'consent': [],
         'Indication': [],
         'Technique': [],
         'Post-procedure': [],

@@ -18,12 +18,7 @@
             <h2>Procedure Note: Paracentesis</h2>
             
             <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family is given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
+                <div data-section="proc_consent"></div>
                 
                 <h3>Indication</h3>
                 <button data-section="indication" onclick="handleButtonClick(this, 'diagnostic paracentesis for evaluation of fluid for signs of infection')">diagnostic para</button>
@@ -74,5 +69,9 @@
     
     <footer></footer>
     <script src="js/paracentesisscript.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('proc_consent');
+    </script>
 </body>
 </html>

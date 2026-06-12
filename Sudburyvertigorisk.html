@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intubation</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+    
+  <div class="container">
+    <div class="form-section">
+        <h2 class="title">Sudbury Vertigo Risk</h2>
+        
+        <yes-no heading="Male"></yes-no>
+        <yes-no heading="Age >65"></yes-no>
+        <yes-no heading="Diabetes"></yes-no>
+        <yes-no heading="Hypertension" yes-score="3"></yes-no>
+        <yes-no heading="Motor or Sensory" yes-score="5"></yes-no>
+        <yes-no heading="Cerebellar deficit" yes-score="6"></yes-no>
+        <p>Includes diplopia, dysarthria, dysphagia, dysmetria or ataxia</p>
+
+    </div>
+    <div class="output-section">
+        <div id="outputArea"></div>
+        <button onclick="copyOutput();">Copy to Clipboard</button>
+        <button onclick="clearOutput()">Clear</button>
+        <div class="related-procedures">
+            <p><strong>Low risk (score &lt;5):</strong></p>
+            <ul>
+                <li>Imaging is generally unnecessary if no red-flag features are present.</li>
+                <li>Manage benign causes (e.g., BPPV) and provide symptom relief.</li>
+                <li>Discharge with return precautions, and arrange outpatient follow-up.</li>
+            </ul>
+        
+            <p><strong>Moderate risk (score 5–8):</strong></p>
+            <ul>
+                <li>If a peripheral cause is uncertain, obtain MRI (± vascular imaging).</li>
+                <li>Tailor further work-up to clinical suspicion, comorbidities, and social factors.</li>
+            </ul>
+        
+            <p><strong>High risk (score &gt;8):</strong></p>
+            <ul>
+                <li>Expedite evaluation and neuroimaging (MRI/A or CT/A) for a central cause of vertigo.</li>
+                <li>Optimize cardiovascular risk factors.</li>
+                <li>Consider admission for further workup and management.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+     <footer>
+    </footer>
+
+<script src="jstest/shared.js"></script>
+<script src="jstest/score.js"></script>
+<script>
+    SCORE_CONFIG = [
+        { min: 0,  max: 4, message: '0% \nLow risk of serious central cause \nClinical implications: no further testing needed' },
+        { min: 5,  max: 8, message: '~2-4 %\nModerate risk of central cause\nClinical implication: further investigation if unclear' },
+        { min: 8, message: '≥41 %\nHigh risk of serious central cause\nClinical implication: urgent evaluation and neuroimaging' },
+    ]
+    SCORE_NAME = 'Sudbury Vertigo Risk Score';
+</script>
+
+</body>
+</html>

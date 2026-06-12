@@ -193,9 +193,20 @@ footer {
     width: 45%;
 }
 
+.form-section h3 {
+    margin: 5px 0; 
+    line-height: 1.0; 
+    font-size: 16px;
+}
+.form-section p {
+    margin: 2px 0; 
+    line-height: 1.0; 
+    font-size: 15px;
+}
+
 .input-group h3 {
-    margin: 5px 0; /* Reduced space above and below h3 */
-    line-height: 1.0; /* Tighter line height */
+    margin: 5px 0; 
+    line-height: 1.0; 
     font-size: 16px;
 }
 

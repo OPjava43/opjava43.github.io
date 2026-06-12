@@ -20,10 +20,7 @@
 
             <!-- Consent Section -->
             <div class="input-group">
-                <h3>Consent</h3>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'consent not obtained, family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
+                <div data-section="proc_consent"></div>
             </div>
 
             <!-- Location/Type Section -->
@@ -83,5 +80,9 @@
     <footer></footer>
 
     <script src="js/triggerpointscript.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('proc_consent');
+    </script>
 </body>
 </html>

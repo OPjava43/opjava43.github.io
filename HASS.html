@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intubation</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+    
+  <div class="container">
+    <div class="form-section">
+        <h2 class="title">Hospital Asthma Severity Score (HASS)</h2>
+        
+        <div class="input-group">
+        
+        <div data-section="respiratory_rate">
+            <h3>Respiratory Rate</h3>
+            <button data-score="0" class="groupbtn">Nml for age</button>
+            <button data-score="1" class="groupbtn">Mildly elevated</button>
+            <button data-score="2" class="groupbtn">Moderately elevated</button>
+            <button data-score="3" class="groupbtn">Severely elevated</button>
+        </div>
+        <div data-section="wheezing">
+            <h3>Wheezing</h3>
+            <button data-score="0" class="groupbtn">None</button>
+            <button data-score="1" class="groupbtn">End-expiratory only</button>
+            <button data-score="2" class="groupbtn">Throughout expiration</button>
+            <button data-score="3" class="groupbtn">Insp + exp</button>
+            <button data-score="3" class="groupbtn">Audible w/o stethoscope</button>
+            <button data-score="3" class="groupbtn">Silent chest (severe)</button>
+        </div>
+        <div data-section="amu">
+            <h3>Accessory Muscle Use (Work of Breathing)</h3>
+            <button data-score="0" class="groupbtn">None</button>
+            <button data-score="1" class="groupbtn">Mild</button>
+            <button data-score="2" class="groupbtn">Moderate</button>
+            <button data-score="3" class="groupbtn">Severe</button>
+        </div>
+        <div data-section="oxygen_sat_req">
+            <h3>Oxygen Saturation/Requirement</h3>
+            <button data-score="0" class="groupbtn">Nml O2 Sat on RA</button>
+            <button data-score="1" class="groupbtn">Slightly decreased, may need O2</button>
+            <button data-score="2" class="groupbtn">Moderate hypoxia</button>
+            <button data-score="3" class="groupbtn">Severe hypoxia</button>
+        </div>
+        </div>   
+    </div>
+
+    <div class="output-section">
+        <div id="outputArea"></div>
+        <button onclick="copyOutput();">Copy to Clipboard</button>
+        <button onclick="clearOutput()">Clear</button>
+        <div class="related-procedures">
+            <p>
+                HASS is meant to track response to treatment over time, not just give a one-time severity label. 
+                HASS is often used alongside clinical judgment and other clinical findings (e.g. pulse oximetry and blood gases).
+            </p>
+        </div>
+    </div>
+</div>
+
+     <footer>
+    </footer>
+
+<script src="jstest/score.js"></script>
+<script>
+    NOTE_INTRO = 'The Hospital Asthma Severity Score (HASS) is a bedside scoring system used to assess the severity of an acute asthma exacerbation, especially in children.';
+    SCORE_CONFIG = [
+        { min: 0,  max: 3, message: 'A HASS Score of {{score}} is considered Mild.' },
+        { min: 4,  max: 7, message: 'A HASS Score of {{score}} is considered Moderate. Higher scores correlate with increased need for intensive therapy (e.g., continuous bronchodilators) or possible ICU admission' },
+        { min: 8, max: 12, message: 'A HASS Score of {{score}} is considered Severe. Higher scores correlate with increased need for intensive therapy (e.g., continuous bronchodilators) or possible ICU admission' },
+    ]
+    SCORE_NAME = 'HASS Score';
+</script>
+
+</body>
+</html>

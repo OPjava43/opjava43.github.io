@@ -17,65 +17,68 @@
     <div class="container">
         <!-- Form Section -->
         <div class="form-section">
-            <h2>Critical Care</h2>
+            <h2 class="title">Critical Care</h2>
             <!-- Critical Care Time -->
-            <div class="input-group">
+            <div data-section="total_Time">
                 <h3>Total Time (minutes)</h3>
-                <button data-section="total_Time" onclick="btnClick(this, '30 minutes')">30</button>
-                <button data-section="total_Time" onclick="btnClick(this, '35 minutes')">35</button>
-                <button data-section="total_Time" onclick="btnClick(this, '40 minutes')">40</button>
-                <button data-section="total_Time" onclick="btnClick(this, '45 minutes')">45</button>
-                <button data-section="total_Time" onclick="btnClick(this, '50 minutes')">50</button>
-                <button data-section="total_Time" onclick="btnClick(this, '60 minutes')">60</button>
-                <button data-section="total_Time" onclick="btnClick(this, '65 minutes')">65</button>
-                <button data-section="total_Time" onclick="btnClick(this, '70 minutes')">70</button>
-                <button data-section="total_Time" onclick="btnClick(this, '75 minutes')">75</button>
-                <textarea data-section="total_Time" id="totalTimeText" placeholder="" onchange="updateText(this)"></textarea>
-            
+                <button data-text="30 minutes">30</button>
+                <button data-text="35 minutes">35</button>
+                <button data-text="40 minutes">40</button>
+                <button data-text="45 minutes">45</button>
+                <button data-text="50 minutes">50</button>
+                <button data-text="60 minutes">60</button>
+                <button data-text="65 minutes">65</button>
+                <button data-text="70 minutes">70</button>
+                <button data-text="75 minutes">75</button>
+                <textarea></textarea>
+            </div>
 
+            <div data-section="indications">
                 <h3>Indications</h3>
-                <button data-section="indications" onclick="btnClick(this, 'management of acute sepsis including fluids, IV antibiotics, and frequent reassessments')">Sepsis</button>
-                <button data-section="indications" onclick="btnClick(this, 'management of acute hypotension including fluids and/or pressors and frequent reassessments')">Hypotension</button>
-                <button data-section="indications" onclick="btnClick(this, 'management of an acute neurologic event requiring discussion with consultants, medical management and frequent reassessments')">Neurologic</button>
-                <button data-section="indications" onclick="btnClick(this, 'acute cardiac ischemia requiring emergency medical management')">STEMI/NSTEMI</button>
-                <button data-section="indications" onclick="btnClick(this, 'trauma evaluation including careful examination, ordering and interpretation of traumatic imaging, and frequent reassessments')">Trauma</button>
-                <button data-section="indications" onclick="btnClick(this, 'management of acute life-threatening respiratory or airway issues requiring aggressive medical management and frequent reassessments')">Respiratory</button>
-                <button data-section="indications" onclick="btnClick(this, 'medical management of pathologic heart rate and/or rhythm including frequent treatment response reassessments')">Rate/rhythm Control</button>
-                <button data-section="indications" onclick="btnClick(this, 'medical management of anaphylaxis requiring frequent reassessments')">Anaphylaxis</button>
-                <button data-section="indications" onclick="btnClick(this, 'evaluation for acute ischemic stroke with consideration and discussion of thrombolytic utilization')">Ischemic stroke</button>
-                <button data-section="indications" onclick="btnClick(this, 'acute anemia requiring blood transfusion and frequent reassessments')">Anemia/Blood Transfusion</button>
-                <button data-section="indications" onclick="btnClick(this, 'acute electrolyte abnormality that required medical management and frequent monitoring')">Electrolyte Abnormality</button>
-                <button data-section="indications" onclick="btnClick(this, 'management of behavioral health emergency including management of acute agitation and/or psychosis, frequent reassessment and/or safety planning')">BH Emergency</button>
-                <button data-section="indications" onclick="btnClick(this, 'medical management of life-threatening toxic exposure requiring monitoring, intervention and frequent reassessments')">Tox/overdose</button>
-                <textarea data-section="indications" id="indicationsText" placeholder="" onchange="updateText(this)"></textarea>
-
+                <button data-text="management of acute sepsis including fluids, IV antibiotics, and frequent reassessments">Sepsis</button>
+                <button data-text="management of acute hypotension including fluids and/or pressors and frequent reassessments">Hypotension</button>
+                <button data-text="management of an acute neurologic event requiring discussion with consultants, medical management and frequent reassessments">Neurologic</button>
+                <button data-text="acute cardiac ischemia requiring emergency medical management">STEMI/NSTEMI</button>
+                <button data-text="trauma evaluation including careful examination, ordering and interpretation of traumatic imaging, and frequent reassessments">Trauma</button>
+                <button data-text="management of acute life-threatening respiratory or airway issues requiring aggressive medical management and frequent reassessments">Respiratory</button>
+                <button data-text="medical management of pathologic heart rate and/or rhythm including frequent treatment response reassessments">Rate/rhythm Control</button>
+                <button data-text="medical management of anaphylaxis requiring frequent reassessments">Anaphylaxis</button>
+                <button data-text="evaluation for acute ischemic stroke with consideration and discussion of thrombolytic utilization">Ischemic stroke</button>
+                <button data-text="acute anemia requiring blood transfusion and frequent reassessments">Anemia/Blood Transfusion</button>
+                <button data-text="acute electrolyte abnormality that required medical management and frequent monitoring">Electrolyte Abnormality</button>
+                <button data-text="management of behavioral health emergency including management of acute agitation and/or psychosis, frequent reassessment and/or safety planning">BH Emergency</button>
+                <button data-text="medical management of life-threatening toxic exposure requiring monitoring, intervention and frequent reassessments">Tox/overdose</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="specific_Interventions">
             <!-- Specific Interventions -->
                 <h3>Specific Interventions</h3>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'interpretation of patients laboratory results and associated medical management')">Lab Interpretation</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'interpretation of patient’s imaging and associated management')">Imaging Interpretation</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'discussion with consultants regarding patient’s care')">Consultants</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'documentation of patient’s medical care')">Documentation</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'discussion of patient’s current diagnosis, medical management, and prognosis with family')">Family Discussion</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'discussion with respiratory therapy regarding patient’s care and reassessment status')">Respiratory Therapy</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'ordering of vasopressors and associated management and titration')">Vasopressors</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'risk/benefit evaluation of thrombolytics, discussion with patient/family and associated management')">Thrombolytic consideration</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'evaluation and associated management of hypotension or hypertension')">Hypo/hypertension</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'active IV fluid resuscitation management to address critical vital sign abnormalities')">IVF for abnormal VS</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'ordering, titration and associated management of BiPAP/CPAP')">BiPap/CPAP </button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'evaluation and associated management of a life-threatening at-risk airway')">At risk airway</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'evaluation and associated management of severe agitation')">Severe agitation</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'resuscitation and associated management of overdose antidote')">Overdose antidote admin</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'evaluation and associated management of life-threatening arrythmias')">Arrythmia</button>
-                <button data-section="specific_Interventions" onclick="btnClick(this, 'management of recurrent seizures without return to baseline, status epilepticus, or airway compromise, hypoxia or severe metabolic derangement')">Seizure</button>
+                <button data-text="interpretation of patients laboratory results and associated medical management">Lab Interpretation</button>
+                <button data-text="interpretation of patient’s imaging and associated management">Imaging Interpretation</button>
+                <button data-text="discussion with consultants regarding patient’s care">Consultants</button>
+                <button data-text="documentation of patient’s medical care">Documentation</button>
+                <button data-text="discussion of patient’s current diagnosis, medical management, and prognosis with family">Family Discussion</button>
+                <button data-text="discussion with respiratory therapy regarding patient’s care and reassessment status">Respiratory Therapy</button>
+                <button data-text="ordering of vasopressors and associated management and titration">Vasopressors</button>
+                <button data-text="risk/benefit evaluation of thrombolytics, discussion with patient/family and associated management">Thrombolytic consideration</button>
+                <button data-text="evaluation and associated management of hypotension or hypertension">Hypo/hypertension</button>
+                <button data-text="active IV fluid resuscitation management to address critical vital sign abnormalities">IVF for abnormal VS</button>
+                <button data-text="ordering, titration and associated management of BiPAP/CPAP">BiPap/CPAP </button>
+                <button data-text="evaluation and associated management of a life-threatening at-risk airway">At risk airway</button>
+                <button data-text="evaluation and associated management of severe agitation">Severe agitation</button>
+                <button data-text="resuscitation and associated management of overdose antidote">Overdose antidote admin</button>
+                <button data-text="evaluation and associated management of life-threatening arrythmias">Arrythmia</button>
+                <button data-text="management of recurrent seizures without return to baseline, status epilepticus, or airway compromise, hypoxia or severe metabolic derangement">Seizure</button>
 
 
-                <textarea data-section="specific_Interventions" id="specificInterventionsText" placeholder="Add any specific interventions" onchange="updateText(this)"></textarea>
+                <textarea placeholder="Add any specific interventions"></textarea>
             </div>
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
-            <div id="outputArea" data-heading="Procedure Note: Intubation" data-intro=""></div>
+            <div id="outputArea"></div>
             <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
             
@@ -93,14 +96,5 @@
     </footer>
 
     <script src="jstest/general.js"></script>
-     <script>
-        SECTIONS = [   
-    'total_Time',
-    'indications',
-    'specific_Interventions'
-    ];
-    outputArea = document.getElementById('outputArea');
-    NOTE_HEADING = 'Critical Care'
-    </script>
 </body>
 </html>

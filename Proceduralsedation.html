@@ -16,12 +16,12 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Procedural Sedation</h2>
+            <h2 class="title">Procedure Note: Procedural Sedation</h2>
             
             <!-- Consent Section -->
-            <div data-section="Consent">
-                <div data-section="consent"></div>
-            </div>
+
+            <div data-section="consent"></div>
+
             
             <div data-section="Timeout">
                 <h3>Timeout</h3>
@@ -142,6 +142,10 @@
     </footer>
 
     <script src="jstest/general.js"></script>
+    <script src="jstest/shared.js"></script>
+    <script>
+        loadShared('consent');
+    </script>
 
 </body>
 </html>

@@ -59,6 +59,7 @@
         <button onclick="clearOutput()">Clear</button>
         <div class="related-procedures">
             <p>
+                The Hospital Asthma Severity Score (HASS) is a bedside scoring system used to assess the severity of an acute asthma exacerbation, especially in children.
                 HASS is meant to track response to treatment over time, not just give a one-time severity label. 
                 HASS is often used alongside clinical judgment and other clinical findings (e.g. pulse oximetry and blood gases).
             </p>
@@ -71,7 +72,6 @@
 
 <script src="jstest/score.js"></script>
 <script>
-    NOTE_INTRO = 'The Hospital Asthma Severity Score (HASS) is a bedside scoring system used to assess the severity of an acute asthma exacerbation, especially in children.';
     SCORE_CONFIG = [
         { min: 0,  max: 3, message: 'A HASS Score of {{score}} is considered Mild.' },
         { min: 4,  max: 7, message: 'A HASS Score of {{score}} is considered Moderate. Higher scores correlate with increased need for intensive therapy (e.g., continuous bronchodilators) or possible ICU admission' },

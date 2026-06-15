@@ -26,7 +26,7 @@ class YesNo extends HTMLElement {
         const noScore = this.getAttribute('no-score') ?? 0;
 
         this.outerHTML = `
-            <div data-section="${section}">
+            <div data-section="${heading}">
                 <h3>${heading}</h3>
                 <button data-group="toggle" data-score="${yesScore}">yes</button>
                 <button data-group="toggle" data-score="${noScore}">no</button>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepsis Management Note</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2 class="title">Restraint and Seclusion</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            <h3>Date&Time</h3>
+                            <p>To be completed within 1-hour of restraint/seclusion application</p>
+                        </th>
+                        <td data-replace="date_time">
+                            <input type="datetime-local">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Restraint Type</h3></th>
+                        <td data-replace="restraint_type">
+                            <label><input type="checkbox">Physical Hold</label>
+                            <label><input type="checkbox">Seclusion</label>
+                            <label><input type="checkbox">2-point</label>
+                            <label><input type="checkbox">4-point</label>
+                            <label ><input type="checkbox" data-reveal="chemical-note" data-text="Chemical">Chemical *</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Reason</h3></th>
+                        <td data-replace="reason">
+                            <label><input type="checkbox">Behavior posing <strong>danger to self</strong></label>
+                            <label><input type="checkbox">Behavior posing <strong>danger to others</strong></label>
+                            <label><input type="checkbox"><strong>Combative</strong>, striking out at others</label>
+                            <label><input type="checkbox">Agitation, <strong>escalating behavior</strong>, potential for violence</label>
+                            <label><input type="checkbox"><strong>Threatening</strong> physical harm to <strong>others</strong> and to the environment</label>
+                            <label><input type="checkbox"><strong>Threatening</strong> physical harm to <strong>self</strong>, out of control</label>
+                        <textarea></textarea>
+                    </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Reaction</h3></th>
+                        <td data-replace="reaction">                        
+                            <label><input type="checkbox">crying/<strong>tearful</strong></label>
+                            <label><input type="checkbox">Yelling/<strong>shouting</strong></label>
+                            <label><input type="checkbox"><strong>Pulling</strong> against restraints/struggling</label>
+                            <label><input type="checkbox">Verbal <strong>threats</strong></label>
+                            <label><input type="checkbox"><strong>Calm</strong>/cooperative</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Mental Status</h3></th>
+                        <td data-replace="mental_status">
+                            <label><input type="checkbox">Alert/oriented</label>
+                            <label><input type="checkbox">Paranoid</label>
+                            <label><input type="checkbox">Pressure speech</label>
+                            <label><input type="checkbox">Irritable</label>
+                            <label><input type="checkbox">Agitated</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>ROS</h3></th>
+                        <td data-replace="ros">
+                            <label><input type="checkbox"><strong>VSS</strong>, no evidence of breakdown</label>
+                            <label><input type="checkbox"><strong>Skin warm/dry</strong> Vital signs stable</label>
+                            <label><input type="checkbox"><strong>Resp</strong>irations <strong>regular</strong> and unlabored</label>
+                            <label><input type="checkbox"><strong>HRR</strong> Heart rate regular</label>
+                            <label><input type="checkbox"><strong>Intake OK</strong> No nutritional compromise at this time</label>
+                            <label><input type="checkbox">Denies pain</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>  
+                        <th><h3>Review of History</h3></th>
+                        <td data-replace="history">
+                            <label><input type="checkbox" data-text="The patient's history and problem list were reviewed, including any that might place the patient at greater safety risk">Reviewed</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Environment Safety Assessment</h3></th>
+                        <td data-replace="ESA">
+                            <label><input type="checkbox" data-text="The patient's immediate environment was evaluated for safety and free of harmful/injurious items">Safe</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Criteria to discontinue</h3></th>
+                        <td data-replace="criteria">
+                            <label><input type="checkbox"><strong>Abstain</strong> from <strong>hitting</strong> or harming others</label>
+                            <label><input type="checkbox"><strong>Abstain</strong> from verbal <strong>aggression</strong> towards others</label>
+                            <label><input type="checkbox">Demonstrate <strong>insight</strong> or understanding of triggers</label>
+                            <label><input type="checkbox">Demonstrate <strong>ability</strong> to manage anger</label>
+                            <label><input type="checkbox"><strong>Resolve aggression</strong> ideation</label>
+                            <label><input type="checkbox" data-text="Contract for saftey upon release of {{restraint_type}}"><strong>Contract for saftey</strong> upon release of restraints</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Noification/education</h3></th>
+                        <td data-replace="informee">
+                            <label><input type="checkbox">Patient</label>
+                            <label><input type="checkbox">Family/Significant other</label>
+                            <label><input type="checkbox">Patient advocate</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><h3>Recommendation</h3></th>
+                        <td data-replace="recommendation">
+                            <label><input type="checkbox" data-text="The patient MEETS criteria for continued {{restraint_type}}">The patient <strong>MEETS</strong> criteria for continued restraints</label>
+                            <textarea></textarea>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Output Section -->
+        <div class="output-section">
+            <div id="outputArea">
+            
+            </div>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
+            <button onclick="clearOutput()">Clear</button> 
+            
+            <div id="chemical-note" class="hidden">
+            <p>*<strong>
+                Chemical restraint</strong> is a medication used outside the patient's
+                standard treatment plan to control behavior or restrict movement in
+                an emergency. (e.g. to control dangerous behavior when physical
+                restriction is needed), while medications for behavioral
+                management are part of ongoing treatment to reduce symptoms
+                and improve cooperation without restricting movement. Both have
+                roles, but <strong>chemical restraint</strong> use is <u>reserved for the most urgent
+                safety situations.</u></p>
+            </div>       
+        
+        </div>
+        
+    </div>
+
+    <footer>
+    </footer>
+    
+    <script src="jstest/form.js"></script>
+    <script>
+
+        NOTE_TEMPLATE = `
+        {{date_time}}
+        \nI have completed a face-to-face evaluation of the patient within 1 hour after the initiation of {{restraint_type}}.
+        \n
+        \nThe 1-hour face-to-face evaluation included the following findings:
+        &#10;The patient's immediate situation or cause of the {{restraint_type}}: {{reason}}
+        &#10;The patient's reaction to the intervention: {{reaction}}
+        &#10;Mental status: {{mental_status}}
+        &#10;Review of Systems: {{ros}}
+        &#10;Review of History: {{history}}
+        &#10;Criteria for discontinuation of {{restraint_type}} include: {{criteria}}
+        &#10;Environment Safety Assessment: {{ESA}}
+        &#10;The {{informee}} were updated on the patient's status and use of restraints, questions answered.
+        &#10;Recommendation: {{recommendation}}`;
+    </script>
+    
+</body>
+</html>

@@ -17,37 +17,48 @@
     <div class="container">
         <!-- Form Section -->
         <div class="form-section">
-            <h2>Sepsis Management</h2>
+            <h2 class="title">Sepsis Management</h2>
 
             <!-- Diagnosis Section -->
-            <div class="input-group">
+            <div data-section="diagnosis">
                 <h3>Diagnosis</h3>
-                <button data-section="diagnosis" onclick="handleButtonClick(this, 'sepsis')">sepsis</button>
-                <button data-section="diagnosis" onclick="handleButtonClick(this, 'severe sepsis')">severe sepsis</button>
-                <button data-section="diagnosis" onclick="handleButtonClick(this, 'septic shock')">septic shock</button>
-                <textarea id="diagnosisText" placeholder="" onchange="updateRealTimeText('Diagnosis', 'diagnosisText')"></textarea>
+                <button data-text="sepsis">sepsis</button>
+                <button data-text="severe sepsis">severe sepsis</button>
+                <button data-text="septic shock">septic shock</button>
+                <textarea></textarea>
             </div>
 
             <!-- Initial Management Section -->
-            <div class="input-group">
+            <div data-section="initial_management">
                 <h3>Initial Management</h3>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'patient’s lactate level was measured')">lactate</button>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'blood cultures were sent prior to antibiotic administration')">blood cx</button>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'IV antibiotics were administered')">antibiotics</button>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'the patient was ordered for a 30 cc/kg bolus of IV fluids')">30 cc/kg fluid ordered</button>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'given the patients habitus, ideal body weight of ___ kg was used for fluid calculation')">ideal body weight used</button>
-                <button data-section="initial_management" onclick="handleButtonClick(this, 'the patient did not have a 30 cc/kg bolus of fluid ordered due to contraindication')">fluid contraindication</button>
-                <textarea id="initial_managementText" placeholder="Explain any variance in sepsis bundle and/or contraindication to 30 cc/kg fluid bolus here" onchange="updateRealTimeText('initial_management', 'initial_managementText')"></textarea>
+                <button data-text="patient's lactate level was measured">lactate</button>
+                <button data-text="blood cultures were ordered/collected">blood cx</button>
+                <button data-text="IV antibiotics were administered">antibiotics</button>
+                <button data-text="the patient was ordered for a 30 cc/kg bolus of IV fluids">30 cc/kg fluid ordered</button>
+                <button data-reveal="ibw,fluid">ideal body weight used</button>
+                <button data-reveal="fluid" data-text="fluid contraindication for volume overload">fluid contraindication</button>
+                <button data-text="patient received additional IV fluids by EMS prior to arrival">IVF by EMS</button>
+                <div id="ibw" class="hidden reveal-target">
+                    <h3 class = "inline">Ideal body weight used:</h3>
+                    <input data-text="given the patients habitus, ideal body weight of {{input}} kg was used for fluid calculation"  type="number">
+                </div>
+                <textarea placeholder="Explain any variance in sepsis bundle and/or contraindication to 30 cc/kg fluid bolus here"></textarea>
+            </div>
+
+            <!-- Initial Management Section -->
+            <div data-section="fluid_adjustment" id="fluid" class="hidden reveal-target">
+                <h3 class = "inline">Adjusted amount of fluid given</h3>
+                <input type="number" data-text="{{input}} mL">
             </div>
             
             <!-- Reassessment Section -->
-            <div class="input-group">
+            <div data-section="reassessment">
                 <h3>Reassessment</h3>
-                <button data-section="reassessment" onclick="handleButtonClick(this, 'a repeat lactate was measured for the patient to assess response to resuscitation')">repeat lactate</button>
-                <button data-section="reassessment" onclick="handleButtonClick(this, 'blood pressure improved following initial resuscitation')">improved BP</button>
-                <button data-section="reassessment" onclick="handleButtonClick(this, 'patient demonstrated improved perfusion on reassessment')">improved capillary refill</button>
-                <button data-section="reassessment" onclick="handleButtonClick(this, 'patient was initiated on IV vasopressors due to persistent hypotension')">pressors</button>
-                <textarea id="reassessmentText" placeholder="" onchange="updateRealTimeText('reassessment', 'reassessmentText')"></textarea>
+                <button data-text="a repeat lactate was measured for the patient to assess response to resuscitation">repeat lactate</button>
+                <button data-text="blood pressure improved following initial resuscitation">improved BP</button>
+                <button data-text="patient demonstrated improved perfusion on reassessment">improved capillary refill</button>
+                <button data-text="patient was initiated on IV vasopressors due to persistent hypotension">pressors</button>
+                <textarea></textarea>
             </div>
         </div>
 
@@ -56,15 +67,56 @@
             <div id="outputArea">
             
             </div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
             
-        <p><i>Note</i>: The BlueWater sepsis care quality bundle has the following components for care of patients with sepsis:<br>
-1. Blood culture drawn before antibiotics administered<br>
-2. Lactate drawn<br>
-3. Antibiotic(s) administered<br>
-4. 30mL/kg if hypotension present or Lactate >4 (use ideal body weight in obese patients) or reason why fluid bolus is not appropriate</p>
-            
+        <p><i>Note</i>: The BlueWater sepsis care quality bundle has the following components for care of patients with severe sepsis or septic shock:<br></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Care Requirement</th>
+                    <th>Severe Sepsis Bundle</th>
+                    <th>Septic Shock Bundle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Initial Lactate Level</td>
+                    <td>Required within 3 hours of Time Zero</td>
+                    <td>Required within 3 hours of Time Zero</td>
+                </tr>
+                <tr>
+                    <td>Blood Cultures</td>
+                    <td>Required within 3 hours (prior to IV antibiotics)</td>
+                    <td>Required within 3 hours (prior to IV antibiotics)</td>
+                </tr>
+                <tr>
+                    <td>Broad Spectrum Antibiotics</td>
+                    <td>Required within 3 hours</td>
+                    <td>Required within 3 hours</td>
+                </tr>
+                <tr>
+                    <td>30mL/kg IV Fluid Bolus</td>
+                    <td>Not automatically required. Only triggered if the initial lactate is ≥4.0 mmol/L</td>
+                    <td>Mandatory within 3 hours of shock identification</td>
+                </tr>
+                <tr>
+                    <td>Vasopressor Therapy</td>
+                    <td>Never required (by definition, these patients are not in shock)</td>
+                    <td>Mandatory within 6 hours if hypotension persists after the fluid bolus</td>
+                </tr>
+                <tr>
+                    <td>Repeat Lactate Level</td>
+                    <td>Required within 6 hours only if the first lactate was elevated (&gt;2.0 mmol/L)</td>
+                    <td>Required within 6 hours only if the first lactate was elevated (&gt;2.0 mmol/L)</td>
+                </tr>
+                <tr>
+                    <td>Focused Perfusion Reassessment</td>
+                    <td>Never required for severe sepsis alone</td>
+                    <td>Mandatory within 6 hours of shock identification</td>
+                </tr>
+            </tbody>
+        </table>
 <section id="sepsis-criteria">
 
     <h3>SIRS Criteria (≥ 2 Required)</h3>
@@ -85,13 +137,12 @@
     <ul>
         <li>Sepsis <strong>AND</strong> evidence of acute organ dysfunction, such as:</li>
         <ul>
-            <li>Hypotension responsive to fluids</li>
+            <li>Hypotension (SBP&lt;90 or MAP &lt;65)</li>
             <li>Lactate ≥ 2 mmol/L</li>
-            <li>Creatinine elevation or oliguria</li>
-            <li>Acute mental status change</li>
+            <li>Creatinine &gt;2.0 or oliguria</li>
             <li>Platelets &lt; 100,000</li>
             <li>Bilirubin &gt; 2 mg/dL</li>
-            <li>Acute respiratory failure requiring supplemental O₂ or ventilation</li>
+            <li>Acute respiratory failure (Vent or BiPAP)</li>
             <li>INR &gt; 1.5 (not on anticoagulation)</li>
         </ul>
     </ul>
@@ -100,7 +151,7 @@
     <ul>
         <li>Severe sepsis <strong>AND</strong> either:</li>
         <ul>
-            <li>Persistent hypotension despite adequate fluid resuscitation</li>
+            <li>Persistent hypotension (2 readings w/in 6h SSPT) </li>
             <li>Lactate ≥ 4 mmol/L even if blood pressure is normal</li>
         </ul>
     </ul>
@@ -120,6 +171,9 @@
     <footer>
     </footer>
 
-    <script src="js/sepsisbundlescript.js"></script>
+    <script src="jstest/general.js"></script>
+    <script>
+        NOTE_INTRO = 'Due to a concern for sepsis, the following actions were conducted:'
+    </script>
 </body>
 </html>

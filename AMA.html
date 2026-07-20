@@ -17,44 +17,57 @@
     <div class="container">
         <!-- Input Section -->
         <div class="form-section">
-            <h2>Against Medical Advice Note</h2>
+            <h2 class="title">Against Medical Advice Note</h2>
 
             <!-- Specific Concerns -->
-            <h3>Specific Concerns</h3>
-            <div class="input-group">
-                <button data-section="SpecificConcerns" onclick="handleButtonClick(this, 'I explained to the patient that I was concerned of possibly undiagnosed traumatic injuries')">traumatic injuries</button>
-                <button data-section="SpecificConcerns" onclick="handleButtonClick(this, 'I explained to the patient that I was concerned of the risk of infection and/or sepsis that could pose a threat of death or morbidity')">infection/sepsis</button>
-                <button data-section="SpecificConcerns" onclick="handleButtonClick(this, 'I explained to the patient that I was concerned of morbidity or death due to ongoing and clinically relevant substance use')">substance use</button>
-                <button data-section="SpecificConcerns" onclick="handleButtonClick(this, 'I explained to the patient that I was concerned about the potential for ongoing cardiac ischemia')">ACS</button>
-                <button data-section="SpecificConcerns" onclick="handleButtonClick(this, 'I explained to the patient that I was concerned about the potential for an ongoing neurologic emergency that could pose a threat of serious morbidity and/or death')">neurologic emergency</button>
-                <textarea id="SpecificConcernsText" placeholder="" onchange="updateRealTimeText('Specific Concerns', 'SpecificConcernsText')"></textarea>
+            <div data-section="SpecificConcerns">
+                <h3>Specific Concerns</h3>
+                <button data-text="I explained to the patient that I was concerned of possibly undiagnosed life or limb threatening traumatic injuries">traumatic injuries</button>
+                <button data-text="I explained to the patient that I was concerned of the risk of infection and/or sepsis that could pose a threat of death or morbidity">infection/sepsis</button>
+                <button data-text="I explained to the patient that I was concerned about morbidity or death due to acute ongoing substance use">substance use</button>
+                <button data-text="I explained to the patient that I was concerned about the potential for cardiac issues that could result in death">cardiac</button>
+                <button data-text="I explained to the patient that I was concerned about the potential for an ongoing neurologic emergency that could pose a threat of serious morbidity and/or death">neurologic</button>
+                <button data-text="I explained to the patient that I was concerned about their safety due to their mental health issues. However, I feel that their risk was not high enough to take away their civil rights and hold them against their wishes.">psychiatric</button>
+                <textarea></textarea>
             </div>
 
             <!-- Diagnostics/Treatments Offered -->
-            <h3>Diagnostics/Treatments Offered</h3>
-            <div class="input-group">
-                <button data-section="DiagnosticsOffered" onclick="handleButtonClick(this, 'Further laboratory testing was recommended as part of their workup')">lab testing</button>
-                <button data-section="DiagnosticsOffered" onclick="handleButtonClick(this, 'Imaging was recommended as a part of their emergency workup')">imaging</button>
-                <button data-section="DiagnosticsOffered" onclick="handleButtonClick(this, 'I recommended further IV fluids in the management of their suspected hypovolemic state')">IV fluids</button>
-                <button data-section="DiagnosticsOffered" onclick="handleButtonClick(this, 'I recommended antibiotics for the treatment of a presumed infection')">antibiotics</button>
-                <button data-section="DiagnosticsOffered" onclick="handleButtonClick(this, 'I strongly recommended admission to the hospital for further workup and management of their presenting symptoms')">admission</button>
-                <textarea id="DiagnosticsOfferedText" placeholder="" onchange="updateRealTimeText('Diagnostics/Treatments Offered', 'DiagnosticsOfferedText')"></textarea>
+            <div data-section="DiagnosticsOffered">                
+                <h3>Diagnostics/Treatments Offered</h3>
+                <button data-text="Further laboratory testing was recommended as part of their workup">observation</button>
+                <button data-text="I strongly recommended further observation in the emergency department">lab testing</button>
+                <button data-text="Imaging was recommended as a part of their emergency workup">imaging</button>
+                <button data-text="I recommended further IV fluids in the management of their suspected hypovolemic state">IV fluids</button>
+                <button data-text="I recommended antibiotics for the treatment of a presumed infection">antibiotics</button>
+                <button data-text="I strongly recommended admission to the hospital for further workup and management of their presenting symptoms">admission</button>
+                <textarea></textarea>
             </div>
 
             <!-- Risk Mitigation -->
-            <h3>Risk Mitigation</h3>
-            <div class="input-group">
-                <button data-section="RiskMitigation" onclick="handleButtonClick(this, 'In order to reduce risk from their decision to leave AMA I have spoken with an outpatient provider to best coordinate outpatient follow-up')">outpatient follow-up</button>
-                <button data-section="RiskMitigation" onclick="handleButtonClick(this, 'Despite their decision to leave AMA I have prescribed outpatient medications and informed the patient of this plan')">rx management</button>
-                <button data-section="RiskMitigation" onclick="handleButtonClick(this, 'I have spoken with the patient’s family to help monitor for return precautions and also encourage the patient to seek ongoing care for their current medical condition')">discussion with family</button>
-                <textarea id="RiskMitigationText" placeholder="" onchange="updateRealTimeText('Risk Mitigation', 'RiskMitigationText')"></textarea>
+            <div data-section="RiskMitigation">
+                <h3>Risk Mitigation</h3>
+                <button data-text="In order to reduce risk from their decision to leave AMA I have spoken with an outpatient provider to best coordinate outpatient follow-up">outpatient follow-up</button>
+                <button data-text="Despite their decision to leave AMA I have prescribed outpatient medications and informed the patient of this plan">rx management</button>
+                <button data-text="I have spoken with the patient's family to help monitor for return precautions and also encourage the patient to seek ongoing care for their current medical condition">discussion with family</button>
+                <textarea></textarea>
             </div>
+
+            <!-- Risk Mitigation -->
+            <div data-section="CapacityEvaluation">
+                <h3>Capacity Evaluation</h3>
+                <button data-text="the patient was alert and oriented and was able to understand the decision that they were making and the risks involved">a &amp; Ox3</button>
+                <button data-text="the patient had a stable gait and was able to navigate their surroundings safely">gait</button>
+                <button data-text="the patient was able to explain in an understandable manner why they wanted to leave or refuse further testing or treatment and was able to voice their understanding of those risks">explained why</button>
+                <button data-text="I explained to the patient that I was concerned about their safety due to their mental health issues. However, I feel that their risk was not high enough to take away their civil rights and hold them against their wishes">psychiatric</button>
+                <textarea></textarea>
+            </div>
+    
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
         </div>
     </div>
@@ -62,6 +75,27 @@
     <footer>
     </footer>
 
-    <script src="js/amascript.js"></script>
+    <script src="jstest/general.js"></script>
+    <script>
+        NOTE_INTRO = `Despite extensive discussion, the patient has decided to leave the emergency
+            department against medical advice without completing further evaluation, testing, or
+            treatments that were offered. The patient's capacity to make this decision is not reduced
+            by intoxication or distracting pain. They appear to have intact insight, judgment, and
+            reasoning, and in my medical opinion, they have decision-making capacity. The patient
+            is also not under any duress to leave the hospital. I explained my concerns about the
+            patient's health, given that a full evaluation and treatment have not been completed. I
+            discussed the need for continued evaluation to determine whether their symptoms may
+            be caused by a condition that carries a risk of death or serious morbidity. Risks
+            discussed included, but were not limited to, death, permanent disability, prolonged
+            hospitalization, and prolonged illness. I discussed the specific benefits of additional
+            treatment, as well as tried offering alternative options in hopes that the patient might be
+            amenable to partial evaluation and treatment which would be medically beneficial to the
+            patient. However, the patient declined my options and insisted on leaving. Because I
+            was unable to convince the patient to stay, I answered all of their questions about their
+            condition, provided written discharge instructions which were reviewed and advised
+            them to return to this or any emergency department to complete their evaluation at any
+            time, particularly with worsening symptoms.`;
+        render();
+    </script>
 </body>
 </html>

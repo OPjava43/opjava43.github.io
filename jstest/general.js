@@ -7,8 +7,12 @@ const outputArea = document.getElementById('outputArea');
 const NOTE_HEADING = document.querySelector('.title')?.textContent ?? '';
 let NOTE_INTRO = '';
 
+
+
 const state = {};
 const textState = {};     // strings — for textareas
+const inputState = {}; 
+const revealState = {};
 
 function getSection(el) {
     return el.closest('[data-section]')?.dataset.section;
@@ -19,16 +23,49 @@ function defaltSet(id) {
     btnClick(btn);
 }
 
+function reveal(btn){
+    if (btn.dataset.reveal) {
+        const isPressed = btn.classList.contains('pressed');
+        btn.dataset.reveal.split(',').forEach(id => {
+            id = id.trim();
+            const el = document.getElementById(id);
+            if (!el) return;
+            const section = getSection(el);
+            if (!revealState[id]) revealState[id] = 0;
+            revealState[id] += isPressed ? -1 : 1;
+            el.classList.toggle('hidden', revealState[id] === 0);
+            if (!!el.querySelector('input')) {
+                if( el.classList.contains('hidden')) {
+                    delete inputState[section];
+                    render()
+                }else{
+                    updateText(el.querySelector('input'), true);
+                }
+            } else {
+                render()
+            }
+        });
+    }
+}
+
+
+
 function btnClick(btn) {
+    // handle reveal first, before data-text check
     const section = getSection(btn);
     // Fall back to data-text if text not passed directly
     const value = btn.dataset.text;
 
-    if (!value) return;
+    reveal(btn);
+
     if (!state[section]) state[section] = new Set();
  
     const added = btn.classList.toggle('pressed');
+
+    if (!value) return;
     added ? state[section].add(value) : state[section].delete(value);
+
+    
     render();
 }
 
@@ -75,34 +112,54 @@ const today = new Date().toLocaleDateString('en-US', {
 
 document.querySelectorAll('textarea[data-default="date"]').forEach(ta => {
     ta.value = today;
+    updateText(ta);
 });
 
-function updateText(textarea) {
+document.querySelectorAll('input[type="number"]').forEach(input => {
+    input.style.width = input.value.length + .5 + 'ch';
+    input.addEventListener('input', () => {
+        input.style.width = input.value.length + .5 + 'ch';
+    });
+});
+
+function updateText(textarea, input = false) {
     const section = getSection(textarea);
-    textState[section] = textarea.value.trim();
+    const content = textarea.value.trim();
+    if (input) {
+        const text = textarea.dataset.text
+        if (text){
+            if (!inputState[section]) inputState[section] = new Set();
+            inputState[section] = text.replace(/{{input}}/g, content || '___')
+        }
+    } else {
+        if (!textState[section]) textState[section] = new Set();
+        textState[section] = textarea.value.trim();
+    }
+    
     render();
 }
+
 
 function render() {
     const lines = SECTIONS
         .map(section => {
             const sectionEl = document.querySelector(`[data-section="${section}"]`);
             if (sectionEl?.dataset.display === 'false') return;
+            if (sectionEl?.classList.contains('hidden')) return;
 
             const buttons = state[section] ? [...state[section]] : [];
             const freetext = textState[section] || '';
+            const inputtext = inputState[section] || '';
             const title = document.querySelector(`[data-section="${section}"] h3`)?.textContent;
             // Combine both sources, drop empty strings
-            const val = [...buttons, freetext].filter(Boolean).join(', ');
+            const val = [...buttons, inputtext, freetext].filter(Boolean).join(', ');
             const formattedVal = fmt(val);
             
             return val ? `<strong>${title}:</strong> ${formattedVal}` : '';
         })
         .filter(Boolean);
 
-    outputArea.innerHTML = lines.length
-        ? `<h2>${NOTE_HEADING}</h2><p>${fmt(NOTE_INTRO)}</p>${lines.map(l => `<div>${l}</div>`).join('')}`
-        : '';
+    outputArea.innerHTML = `<h2>${NOTE_HEADING}</h2><p>${fmt(NOTE_INTRO)}</p>${lines.map(l => `<div>${l}</div>`).join('')}`;
 }
 
 function fmt(text) {
@@ -156,9 +213,13 @@ async function copyOutput() {
 function clearOutput() {
     Object.keys(state).forEach(k => delete state[k]);
     Object.keys(textState).forEach(k => delete textState[k]);
+    Object.keys(revealState).forEach(k => delete revealState[k]);
+    Object.keys(inputState).forEach(k => delete inputState[k]);
+    document.querySelectorAll('.reveal-target').forEach(el => el.classList.add('hidden'));
     outputArea.innerHTML = '';
     document.querySelectorAll('.pressed').forEach(b => b.classList.remove('pressed'));
     document.querySelectorAll('textarea').forEach(t => t.value = '');
+    document.querySelectorAll('input[type="number"]').forEach(i => i.value = '');
 
     if (typeof showCopyError === "function") showCopyError("");
     
@@ -176,18 +237,20 @@ function testFill() {
         updateText(ta);
     });
 }
+
+
+
 // ─── Event delegation ────────────────
 document.addEventListener('click', e => {
     const btn = e.target.closest('button');
     if (!btn) return;
-
-    if (btn.dataset.group === 'toggle') {
+    if (!btn.closest('[data-section]')) return;
+    if (btn.dataset.action === 'time-now') {
+        timeNow(btn);
+    } else if (btn.dataset.group === 'toggle') {
         togglegroup(btn);
     } else {
         btnClick(btn);
-    }
-    if (btn.dataset.action === 'time-now') {
-        timeNow(btn);
     }
 
 });
@@ -195,4 +258,8 @@ document.addEventListener('click', e => {
 document.addEventListener('change', e => {
     const ta = e.target.closest('textarea');
     if (ta) updateText(ta);
+
+    const input = e.target.closest('input');
+    if (input) updateText(input,true);
+    
 });

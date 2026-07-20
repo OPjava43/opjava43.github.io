@@ -1,4 +1,5 @@
-/* General Styles */
+/* ─── 1. RESET & BASE ──────────────────────────────────────────────────────── */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,33 +10,35 @@ body {
     position: relative;
 }
 
-/* Header */
+
+/* ─── 2. HEADER ────────────────────────────────────────────────────────────── */
+
 header {
     background-color: white;
     color: navy;
     padding: 10px;
     display: flex;
-    justify-content: space-between; /* Space between the logo and the title */
-    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Image in Header */
 #header-logo {
-    height: 80px; /* Adjust the size of the logo */
-    margin-left: 0; /* Space between the logo and the title (if needed) */
+    height: 80px;
+    margin-left: 0;
 }
 
-/* Title Text */
 header h1 {
     margin: 0;
-    text-align: left; /* Align the title text to the left */
-    font-family: 'Charter', serif; /* Set the font to Charter */
-    font-style: italic; /* Make the font italic */
-    flex-grow: 1; /* Allows the title to take up remaining space */
-    margin-right: 100px; /* Move the title 100px from the right */
+    text-align: left;
+    font-family: 'Charter', serif;
+    font-style: italic;
+    flex-grow: 1;
+    margin-right: 100px;
 }
 
-/* Navigation */
+
+/* ─── 3. NAVIGATION ────────────────────────────────────────────────────────── */
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -63,7 +66,20 @@ nav ul li a:hover {
     background-color: #111;
 }
 
-/* Main Content Layout */
+
+/* ─── 4. FOOTER ────────────────────────────────────────────────────────────── */
+
+footer {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+
+/* ─── 5. HOME PAGE LAYOUT ──────────────────────────────────────────────────── */
+
 main {
     padding: 20px;
     flex-grow: 1;
@@ -74,90 +90,10 @@ main {
     margin-bottom: 0;
 }
 
-/* Home Section */
 #home {
-    margin-right: 500px; /* Reserve space on the right for Procedures */
+    margin-right: 500px;
 }
 
-/* Clinical Decision Tools Section */
-#decision-tools {
-    position: absolute;
-    top: 20px; /* Align with Procedures */
-    right: 400px; /* Adjusted right offset for even spacing */
-    width: 250px;
-    text-align: left;
-}
-
-/* Remove bullets from Decision Tools list */
-#decision-tools ul {
-    list-style-type: none; /* Removes bullets */
-    padding-left: 0; /* Removes any left padding */
-}
-
-#decision-tools ul li {
-    margin-bottom: 2px; /* Reduced space between the buttons */
-}
-
-/* Link Styles for Decision Tools Section */
-#decision-tools ul li a {
-    display: block;
-    background-color: white;
-    color: navy;
-    border: 2px solid navy;
-    padding: 2px 5px; /* Reduced padding for a smaller button size */
-    margin: 2px 0; /* Space between each link to match Procedures */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 14px;
-    max-width: 120px; /* Set a max-width for the buttons */
-}
-
-/* Hover effect for the Decision Tools links */
-#decision-tools ul li a:hover {
-    background-color: navy;
-    color: white;
-}
-
-/* Procedures Column */
-#procedures {
-    position: absolute;
-    top: 48px; /* Aligns with Clinical Decision Tools */
-    right: 250px; /* Matches the right offset of Decision Tools */
-    width: 150px;
-    text-align: left;
-}
-
-/* Remove bullets from Procedures list */
-#procedures ul {
-    list-style-type: none; /* Removes bullets */
-    padding-left: 0; /* Removes any left padding */
-}
-
-/* Link Styles for Procedures Section */
-#procedures ul li a {
-    display: block;
-    background-color: white;
-    color: navy;
-    border: 2px solid navy;
-    padding: 2px 5px; /* Reduced padding for a smaller button size */
-    margin: 2px 0; /* Space between each link */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 14px;
-    max-width: 120px; /* Set a max-width for the buttons */
-}
-
-/* Hover effect for the Procedures links */
-#procedures ul li a:hover {
-    background-color: navy;
-    color: white;
-}
-
-/* Contact Section */
 #contact {
     position: absolute;
     bottom: 20px;
@@ -165,18 +101,81 @@ main {
     width: auto;
 }
 
-/* Footer */
-footer {
-    background-color: navy;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
+/* Procedures Column */
+#procedures {
+    position: absolute;
+    top: 48px;
+    right: 250px;
+    width: 150px;
+    text-align: left;
 }
 
-/* INPUT/OUTPUT PROCEDURE STYLES */
+#procedures ul {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-/* Container for Form and Output */
+#procedures ul li a {
+    display: block;
+    background-color: white;
+    color: navy;
+    border: 2px solid navy;
+    padding: 2px 5px;
+    margin: 2px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+    max-width: 120px;
+}
+
+#procedures ul li a:hover {
+    background-color: navy;
+    color: white;
+}
+
+/* Clinical Decision Tools */
+#decision-tools {
+    position: absolute;
+    top: 20px;
+    right: 400px;
+    width: 250px;
+    text-align: left;
+}
+
+#decision-tools ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#decision-tools ul li {
+    margin-bottom: 2px;
+}
+
+#decision-tools ul li a {
+    display: block;
+    background-color: white;
+    color: navy;
+    border: 2px solid navy;
+    padding: 2px 5px;
+    margin: 2px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+    max-width: 120px;
+}
+
+#decision-tools ul li a:hover {
+    background-color: navy;
+    color: white;
+}
+
+
+/* ─── 6. PROCEDURE TOOL LAYOUT ─────────────────────────────────────────────── */
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -187,68 +186,24 @@ footer {
 /* Form Section */
 .form-section {
     background-color: #f4f4f4;
-    padding: 10px; /* Reduced padding for a more compact layout */
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 45%;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px); /* adjust 60px to account for nav height */
 }
 
 .form-section h3 {
-    margin: 5px 0; 
-    line-height: 1.0; 
+    margin: 5px 0;
+    line-height: 1.0;
     font-size: 16px;
 }
+
 .form-section p {
-    margin: 2px 0; 
-    line-height: 1.0; 
+    margin: 2px 0;
+    line-height: 1.0;
     font-size: 15px;
-}
-
-.input-group h3 {
-    margin: 5px 0; 
-    line-height: 1.0; 
-    font-size: 16px;
-}
-
-
-
-/* Button Styles */
-button {
-    background-color: white;
-    color: navy;
-    border: 2px solid navy;
-    padding: 2px 5px; /* Smaller padding for buttons */
-    margin: 2px 0; /* Reduced space between buttons */
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 12px; /* Slightly smaller font size */
-}
-
-/* Pressed button style */
-button.pressed {
-    background-color: navy;
-    color: white;
-}
-
-textarea {
-    display: block; /* Forces the textarea to occupy a full line */
-    width: 85%;
-    margin-top: 5px; /* Reduced space above textarea */
-    padding: 5px; /* Reduced padding inside textarea */
-    font-size: 12px;
-    resize: vertical; /* Allows users to resize the textarea vertically */
-    height: 20px; /* Adjusted height for a more compact layout */
-    font-family: Arial, sans-serif;
-    line-height: 1.2; /* Tighter line height */
-}
-
-button + textarea {
-    margin-top: 5px; /* Ensures there's minimal space between the last button and the textarea */
-}
-
-button:hover {
-    background-color: #0056b3;
 }
 
 /* Output Section */
@@ -268,33 +223,233 @@ button:hover {
     margin-bottom: 100px;
 }
 
-/* --- Collapsible sections --- */
-.collapsible-wrap { margin: 1rem 0; border-top: 1px solid #eee; }
-.collapsible {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .5rem;
-  background: transparent;
-  border: 0;
-  padding: .6rem 0;
-  cursor: pointer;
-  font: inherit;
-}
-.collapsible-title {
-  font-weight: 700;
-  font-style: italic;
-  font-size: 1.2em;
-}
-.chevron::before { content: "▸"; display: inline-block; transition: transform .15s ease; }
-.collapsible[aria-expanded="true"] .chevron::before { content: "▾"; }
 
-.collapsible-content { display: none; padding: .25rem 0 .5rem; }
-.collapsible[aria-expanded="true"] + .collapsible-content { display: block; }
+/* ─── 7. BUTTONS ───────────────────────────────────────────────────────────── */
+
+button {
+    background-color: white;
+    color: navy;
+    border: 2px solid navy;
+    padding: 2px 5px;
+    margin: 2px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.pressed {
+    background-color: navy;
+    color: white;
+}
+
+button.blue-toggle {
+    background-color: #87ceeb;
+    color: white;
+    border: 2px solid #000080;
+}
+
+button.blue-toggle.pressed {
+    background-color: #000080;
+    color: white;
+    border: 2px solid #000080;
+}
+
+
+/* ─── 8. FORM INPUTS ───────────────────────────────────────────────────────── */
+
+textarea {
+    display: block;
+    width: 85%;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 12px;
+    resize: vertical;
+    height: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+}
+
+button + textarea {
+    margin-top: 5px;
+}
+
+input[type="number"] {
+    display: inline;
+    vertical-align: middle;
+    padding: 2px 5px;
+    font-size: 12px;
+    border: 2px solid navy;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    color: navy;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid navy;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: navy;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    top: -1px;
+    left: 1px;
+}
+
+input[type="datetime-local"] {
+    padding: 2px 5px;
+    font-size: 12px;
+    border: 2px solid navy;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    color: navy;
+    cursor: pointer;
+}
+
+input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+h3.inline {
+    display: inline;
+    margin: 0;
+    padding: 0 3px 0 0;
+}
+
+
+/* ─── 9. TABLE ─────────────────────────────────────────────────────────────── */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+}
+
+th, td {
+    border: 1px solid navy;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #e8e8e8;
+    color: navy;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.form-section table th:first-child,
+.form-section table td:first-child {
+    width: 30%;
+}
+
+.form-section th p{
+    font-size: 10px;
+    color: black;
+    /* font-weight: normal; */
+}
+
+/* ─── 10. COLLAPSIBLE ──────────────────────────────────────────────────────── */
+
+.collapsible-wrap {
+    margin: 1rem 0;
+    border-top: 1px solid #eee;
+}
+
+.collapsible {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    background: transparent;
+    border: 0;
+    padding: .6rem 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.collapsible-title {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.chevron::before {
+    content: "▸";
+    display: inline-block;
+    transition: transform .15s ease;
+}
+
+.collapsible[aria-expanded="true"] .chevron::before {
+    content: "▾";
+}
+
+.collapsible-content {
+    display: none;
+    padding: .25rem 0 .5rem;
+}
+
+.collapsible[aria-expanded="true"] + .collapsible-content {
+    display: block;
+}
+
+
+/* ─── 11. UTILITY ──────────────────────────────────────────────────────────── */
+
+.hidden {
+    display: none;
+}
+
+
+/* ─── 12. SEPSIS CRITERIA ──────────────────────────────────────────────────── */
 
 #sepsis-criteria {
-    font-size: 0.8rem;   /* Adjust smaller or larger as desired */
+    font-size: 0.8rem;
     line-height: 1.2;
 }
 
@@ -307,15 +462,8 @@ button:hover {
     margin-left: 20px;
 }
 
-button.blue-toggle {
-  background-color: #87ceeb;
-  color: white;
-  border: 2px solid #000080;
+.input-group h3 {
+    margin: 5px 0; 
+    line-height: 1.0; 
+    font-size: 16px;
 }
-
-button.blue-toggle.pressed {
-  background-color: #000080;
-  color: white;
-  border: 2px solid #000080;
-}
-

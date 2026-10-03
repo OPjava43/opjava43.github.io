@@ -16,70 +16,65 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Cardioversion</h2>
+            <h2 class="title">Procedure Note: Cardioversion</h2>
             
             <!-- Consent Section -->
-            <div class="input-group">
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure')">verbal</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'potential benefits and harm as well as alternatives were explained to patient/family. patient/family was given the opportunity to ask questions and patient agrees to proceed with planned procedure, the consent form was signed.')">signed</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'due to the emergent nature of the procedure, consent not obtained')">emergent</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'patient gave informed consent: risks/benefits/alternatives discussed')">patient</button>
-                <button data-section="consent" onclick="handleButtonClick(this, 'family gave informed consent: risks/benefits/alternatives discussed')">family</button>
-                <textarea id="consentText" placeholder="" onchange="updateRealTimeText('Consent', 'consentText')"></textarea>
-            </div>
+            <div data-section="consent"></div>
+
+            <div data-section="timeout"></div>
 
             <!-- Indication Section -->
-            <div class="input-group">
+            <div data-section="Indication">
                 <h3>Indication</h3>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'atrial fibrillation')">AFib</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'supraventricular tachycardia')">SVT</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'ventricular tachycardia')">VTach</button>
-                <textarea id="IndicationText" placeholder="" onchange="updateRealTimeText('Indication', 'IndicationText')"></textarea>
+                <button data-text="atrial fibrillation">AFib</button>
+                <button data-text="supraventricular tachycardia">SVT</button>
+                <button data-text="ventricular tachycardia">VTach</button>
+                <textarea></textarea>
             </div>
 
             <!-- Technique Section -->
-            <div class="input-group">
+            <div data-section="Technique">
                 <h3>Technique</h3>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'anteroposterior pad placement')">AP pad</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'anterolateral pad placement')">AL pad</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'synchronized cardioversion')">synchronized</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, '150 joules administered')">150 J</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, '200 joules administered')">200 J</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'patient converted to sinus rhythm after a single attempt')">single attempt</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'two attempts were required to convert to sinus rhythm')">two attempts</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'despite cardioversion, the patient did not convert to sinus rhythm')">unsuccessful</button>
-                <textarea id="TechniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'TechniqueText')"></textarea>
+                <button data-text="anteroposterior pad placement">AP pad</button>
+                <button data-text="anterolateral pad placement">AL pad</button>
+                <button data-text="synchronized cardioversion">synchronized</button>
+                <button data-text="150 joules administered">150 J</button>
+                <button data-text="200 joules administered">200 J</button>
+                <button data-text="patient converted to sinus rhythm after a single attempt">single attempt</button>
+                <button data-text="two attempts were required to convert to sinus rhythm">two attempts</button>
+                <button data-text="despite cardioversion, the patient did not convert to sinus rhythm">unsuccessful</button>
+                <textarea></textarea>
             </div>
 
             <!-- Post-procedure Section -->
-            <div class="input-group">
+            <div data-section="Post-procedure">
                 <h3>Post-procedure</h3>
-                <button data-section="Post-procedure" onclick="handleButtonClick(this, 'patient is awake, alert, oriented and has normal vital signs')">AAO nl VS</button>
-                <button data-section="Post-procedure" onclick="handleButtonClick(this, 'patient has maintained sinus rhythm')">sinus rhythm</button>
-                <button data-section="Post-procedure" onclick="handleButtonClick(this, 'patient has improved blood pressure following cardioversion')">BP improved</button>
-                <textarea id="PostProcedureText" placeholder="" onchange="updateRealTimeText('Post-procedure', 'PostProcedureText')"></textarea>
+                <button data-text="patient is awake, alert, oriented and has normal vital signs">AAO nl VS</button>
+                <button data-text="patient has maintained sinus rhythm">sinus rhythm</button>
+                <button data-text="patient has improved blood pressure following cardioversion">BP improved</button>
+                <textarea></textarea>
             </div>
 
             <!-- Complications Section -->
-            <div class="input-group">
+            <div data-section="Complications">
                 <h3>Complications</h3>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the patient experienced hypoxia during procedural sedation')">hypoxia</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'patient experienced pain during the cardioversion despite analgesia and/or sedation')">pain</button>
-                <textarea id="ComplicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'ComplicationsText')"></textarea>
+                <button data-text="none">none</button>
+                <button data-text="the patient experienced hypoxia during procedural sedation">hypoxia</button>
+                <button data-text="patient experienced pain during the cardioversion despite analgesia and/or sedation">pain</button>
+                <textarea></textarea>
             </div>
 
             <!-- Provider Section -->
-            <div class="input-group">
+            <div data-section="Provider">
                 <h3>Provider</h3>
-                <textarea id="ProviderText" placeholder="" onchange="updateRealTimeText('Provider', 'ProviderText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
 
             <!-- New Section for Related Notes -->
@@ -93,11 +88,12 @@
 
     <footer>
     </footer>
-
+    
     <script src="jstest/shared.js"></script>
-    <script src="js/cardioversionscript.js"></script>
+    <script src="jstest/general.js"></script>
     <script>
-        loadShared('proc_consent');
+        loadShared('consent');
+        loadShared('timeout');
     </script>
 </body>
 </html>

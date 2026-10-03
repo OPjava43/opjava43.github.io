@@ -243,20 +243,22 @@ function render() {
 }
 
 function fmt(text, format) {
-    
-    if (format === "datetime" || format==="true"){
+    let fmttext=text;
+    if (format === "datetime" || format===true){
+        console.log(format);
         const date = document.querySelector(`[data-section="date"] textarea`)?.value;
         const time = document.querySelector(`[data-section="time"] textarea`)?.value;
-        text = text
+        fmttext = text
             .replace(/{{date}}/g, date? date : '____')
             .replace(/{{time}}/g, time? time : '____');
     } else if (format==="nocomma") {
-        text = text.replace(/,/g, "");
+        fmttext = text.replace(/,/g, "");
     }
     
-    return text
+    return fmttext
         .replace(/\n/g, '<br>')
         .replace(/_([^_]+)_/g, '<u>$1</u>')
+        .replace('.,', '.');
 }
 
 // Function to trigger macros

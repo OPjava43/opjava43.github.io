@@ -13,144 +13,144 @@
             <li><a href="index.html#home">Home</a></li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Fracture Reduction</h2>
+            <h2 class="title">Procedure Note: Fracture Reduction</h2>
             
             <!-- Consent Section -->
-            <div class="input-group">
-                <div data-section="proc_consent"></div>
-            </div>
+            <div data-section="consent"></div>
+            <div data-section="timeout"></div>
+
 
             <!-- Location Section -->
-            <div class="input-group">
+            <div data-section="Location">
                 <h3>Location</h3>
-                <button data-section="Location" onclick="handleButtonClick(this, 'right')">right</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'left')">left</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'finger')">finger</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'wrist')">wrist</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'forearm')">forearm</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'elbow')">elbow</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'humerus')">humerus</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'femur')">femur</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'knee')">knee</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'tibia/fibula')">tib/fib</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'ankle')">ankle</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'foot')">foot</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'arm')">arm</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'hand')">hand</button>
-                <button data-section="Location" onclick="handleButtonClick(this, 'chin')">chin</button>
-                <textarea id="LocationText" placeholder="" onchange="updateRealTimeText('Location', 'LocationText')"></textarea>
+                <button>right</button>
+                <button>left</button>
+                <button>finger</button>
+                <button>wrist</button>
+                <button>forearm</button>
+                <button>elbow</button>
+                <button>humerus</button>
+                <button>femur</button>
+                <button>knee</button>
+                <button>tib/fib</button>
+                <button>ankle</button>
+                <button>foot</button>
+                <button>arm</button>
+                <button>hand</button>
+                <button>chin</button>
+                <textarea></textarea>
             </div>
 
             <!-- Fracture Type Section -->
-            <div class="input-group">
+            <div data-section="type">
                 <h3>Fracture Type</h3>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'the extremity was thoroughly examined and was noted to be closed without significant skin defect')">closed</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'there was a significant skin defect with potential intrusion to the fracture, consistent with an open fracture')">open</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'dorsal displacement')">dorsal displacement</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'volar displacement')">volar displacement</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'colles fracture')">colles</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'Smith fracture')">Smith</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'bimalleolar fracture')">bimalleolar</button>
-                <button data-section="Fracture Type" onclick="handleButtonClick(this, 'trimalleolar fracture')">trimalleolar</button>
-                <textarea id="FractureTypeText" placeholder="" onchange="updateRealTimeText('Fracture Type', 'FractureTypeText')"></textarea>
+                <button data-text="the extremity was thoroughly examined and was noted to be closed without significant skin defect">closed</button>
+                <button data-text="there was a significant skin defect with potential intrusion to the fracture, consistent with an open fracture">open</button>
+                <button data-text="dorsal displacement">dorsal displacement</button>
+                <button data-text="volar displacement">volar displacement</button>
+                <button data-text="colles fracture">colles</button>
+                <button data-text="Smith fracture">Smith</button>
+                <button data-text="bimalleolar fracture">bimalleolar</button>
+                <button data-text="trimalleolar fracture">trimalleolar</button>
+                <textarea></textarea>
             </div>
 
             <!-- Pre-Test Exam Section -->
-            <div class="input-group">
+            <div data-section="pretestexam">
                 <h3>Pre-test Exam</h3>
-                <button data-section="Pre-test Exam" onclick="handleButtonClick(this, 'the affected extremity was neurovascularly intact prior to splinting')">n/v intact</button>
-                <button data-section="Pre-test Exam" onclick="handleButtonClick(this, 'absent pulses concerning for vascular compromise')">absent pulses</button>
-                <button data-section="Pre-test Exam" onclick="handleButtonClick(this, 'there was diminished capillary refill concerning for vascular compromise')">diminished CR</button>
-                <button data-section="Pre-test Exam" onclick="handleButtonClick(this, 'there was neurologic deficit')">neurologic deficit</button>
-                <textarea id="PreTestExamText" placeholder="" onchange="updateRealTimeText('Pre-test Exam', 'PreTestExamText')"></textarea>
+                <button data-text="the affected extremity was neurovascularly intact prior to splinting">n/v intact</button>
+                <button data-text="absent pulses concerning for vascular compromise">absent pulses</button>
+                <button data-text="there was diminished capillary refill concerning for vascular compromise">diminished CR</button>
+                <button data-text="there was neurologic deficit">neurologic deficit</button>
+                <textarea></textarea>
             </div>
 
             <!-- Sedation/Analgesia Section -->
-            <div class="input-group">
+            <div data-section="Sedation/Analgesia">
                 <h3>Sedation/Analgesia</h3>
-                <button data-section="Sedation/Analgesia" onclick="handleButtonClick(this, 'a hematoma block was performed with adequate analgesia')">hematoma block</button>
-                <button data-section="Sedation/Analgesia" onclick="handleButtonClick(this, 'a digital block was performed with adequate analgesia')">digital block</button>
-                <button data-section="Sedation/Analgesia" onclick="handleButtonClick(this, 'procedural sedation was performed (please see procedural sedation note for further details)')">procedural sedation</button>
-                <button data-section="Sedation/Analgesia" onclick="handleButtonClick(this, 'the patient received IV analgesia prior to reduction with adequate effect')">analgesia</button>
-                <textarea id="SedationAnalgesiaText" placeholder="" onchange="updateRealTimeText('Sedation/Analgesia', 'SedationAnalgesiaText')"></textarea>
+                <button data-text="a hematoma block was performed with adequate analgesia">hematoma block</button>
+                <button data-text="a digital block was performed with adequate analgesia">digital block</button>
+                <button data-text="procedural sedation was performed (please see procedural sedation note for further details)">procedural sedation</button>
+                <button data-text="the patient received IV analgesia prior to reduction with adequate effect">analgesia</button>
+                <textarea></textarea>
             </div>
 
             <!-- Technique Section -->
-            <div class="input-group">
+            <div data-section="Technique">
                 <h3>Technique</h3>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a combination of traction and manipulation were used to improve alignment of the fracture')">traction/manipulation</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the patient was placed in finger-traps and counterweights were utilized to facilitate reduction')">finger-traps</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the patient’s femoral fracture was reduced using a femoral traction splint')">traction splint</button>
-                <textarea id="TechniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'TechniqueText')"></textarea>
+                <button data-text="a combination of traction and manipulation were used to improve alignment of the fracture">traction/manipulation</button>
+                <button data-text="the patient was placed in finger-traps and counterweights were utilized to facilitate reduction">finger-traps</button>
+                <button data-text="the patient's femoral fracture was reduced using a femoral traction splint">traction splint</button>
+                <textarea></textarea>
             </div>
 
             <!-- Splinting Section -->
-            <div class="input-group">
+            <div data-section="Splinting">
                 <h3>Splinting</h3>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'orthoglass')">orthoglass</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'plaster')">plaster</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'prefabricated splint')">prefabricated</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'sling placed on affected arm')">sling</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'sugartong splint placed')">sugartong</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'volar splint placed')">volar</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'long arm splint')">long arm splint</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'ulnar gutter splint')">ulnar gutter</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'radial gutter splint')">radial gutter</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'thumb spica splint')">thumb spica</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'short leg splint')">short leg splint</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'long leg splint')">long leg splint</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'walking boot')">walking boot</button>
+                <button data-text="orthoglass">orthoglass</button>
+                <button data-text="plaster">plaster</button>
+                <button data-text="prefabricated splint">prefabricated</button>
+                <button data-text="sling placed on affected arm">sling</button>
+                <button data-text="sugartong splint placed">sugartong</button>
+                <button data-text="volar splint placed">volar</button>
+                <button data-text="long arm splint">long arm splint</button>
+                <button data-text="ulnar gutter splint">ulnar gutter</button>
+                <button data-text="radial gutter splint">radial gutter</button>
+                <button data-text="thumb spica splint">thumb spica</button>
+                <button data-text="short leg splint">short leg splint</button>
+                <button data-text="long leg splint">long leg splint</button>
+                <button data-text="walking boot">walking boot</button>
 
                 <!-- ADDED -->
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'a knee immobilizer was placed on the affected knee')">knee immobilizer</button>
-                <button data-section="Splinting" onclick="handleButtonClick(this, 'a hinged-knee brace was placed on the affected knee')">hinged-knee brace</button>
+                <button data-text="a knee immobilizer was placed on the affected knee">knee immobilizer</button>
+                <button data-text="a hinged-knee brace was placed on the affected knee">hinged-knee brace</button>
 
-                <textarea id="SplintingText" placeholder="" onchange="updateRealTimeText('Splinting', 'SplintingText')"></textarea>
+                <textarea></textarea>
             </div>
 
-            <div class="input-group">
+            <div data-section="Ambulatory Assist Devices">
                 <h3>Ambulatory Assist Devices</h3>
                 <p style="font-size: 14px;"><i>Please specify weight bearing status for patients being discharged with ambulatory assist devices.</i></p>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'a cane was provided to the patient')">cane</button>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'crutches were provided for the patient')">crutches</button>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'a sling was placed on the affected arm')">sling</button>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'a walker was provided to the patient')">walker</button>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'patient instructed to be non-weight bearing')">non-weight bearing</button>
-                <button data-section="Ambulatory Assist Devices" onclick="handleButtonClick(this, 'patient instructed to be partial weight bearing')">partial weight bearing</button>
-                <textarea id="Ambulatory Assist DevicesText" placeholder="" onchange="updateRealTimeText('Ambulatory Assist Devices', 'Ambulatory Assist DevicesText')"></textarea>
+                <button data-text="a cane was provided to the patient">cane</button>
+                <button data-text="crutches were provided for the patient">crutches</button>
+                <button data-text="a sling was placed on the affected arm">sling</button>
+                <button data-text="a walker was provided to the patient">walker</button>
+                <button data-text="patient instructed to be non-weight bearing">non-weight bearing</button>
+                <button data-text="patient instructed to be partial weight bearing">partial weight bearing</button>
+                <textarea></textarea>
             </div>
 
             <!-- Post-Reduction Exam/Tests Section -->
-            <div class="input-group">
+            <div data-section="postreductionexam/test">
                 <h3>Post-reduction exam/tests</h3>
-                <button data-section="Post-reduction exam/tests" onclick="handleButtonClick(this, 'an X-ray was performed that showed improved alignment of the fracture')">X-ray, improved</button>
-                <button data-section="Post-reduction exam/tests" onclick="handleButtonClick(this, 'the affected extremity was neurovascularly intact following reduction and splinting')">n/v intact</button>
-                <textarea id="PostReductionExamTestsText" placeholder="" onchange="updateRealTimeText('Post-reduction exam/tests', 'PostReductionExamTestsText')"></textarea>
+                <button data-text="an X-ray was performed that showed improved alignment of the fracture">X-ray, improved</button>
+                <button data-text="the affected extremity was neurovascularly intact following reduction and splinting">n/v intact</button>
+                <textarea></textarea>
             </div>
 
             <!-- Complications Section -->
-            <div class="input-group">
+            <div data-section="Complications">
                 <h3>Complications</h3>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the patient experienced pain despite analgesia')">pain</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the patient experienced hypoxia during procedural sedation')">hypoxia</button>
-                <textarea id="ComplicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'ComplicationsText')"></textarea>
+                <button data-text="none">none</button>
+                <button data-text="the patient experienced pain despite analgesia">pain</button>
+                <button data-text="the patient experienced hypoxia during procedural sedation">hypoxia</button>
+                <textarea></textarea>
             </div>
 
             <!-- Provider Section -->
-            <div class="input-group">
+            <div data-section="provider">
                 <h3>Provider</h3>
-                <textarea id="ProviderText" placeholder="" onchange="updateRealTimeText('Provider', 'ProviderText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
 
             <!-- New Section for Related Procedures -->
@@ -165,10 +165,11 @@
      <footer>
     </footer>
 
-    <script src="js/reductionscript.js"></script>
+    <script src="jstest/general.js"></script>
     <script src="jstest/shared.js"></script>
     <script>
-        loadShared('proc_consent');
+        loadShared('consent');
+        loadShared('timeout');
     </script>
 </body>
 </html>

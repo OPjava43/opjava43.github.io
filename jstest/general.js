@@ -218,9 +218,7 @@ function render() {
             let value = datagroups;
 
             if (sectiontxt && value){
-                console.log(value);
                 value = sectiontxt.replace(/{{}}/g, value)
-                console.log(value);
             }
 
 
@@ -245,7 +243,6 @@ function render() {
 function fmt(text, format) {
     let fmttext=text;
     if (format === "datetime" || format===true){
-        console.log(format);
         const date = document.querySelector(`[data-section="date"] textarea`)?.value;
         const time = document.querySelector(`[data-section="time"] textarea`)?.value;
         fmttext = text

@@ -16,60 +16,76 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Lumbar Puncture</h2>
+
+            <h2 class="title">Procedure Note: Lumbar Puncture</h2>
             
-            <div class="input-group">
-                <div data-section="proc_consent"></div>
+            
+            <div data-section="consent"></div>
 
+            <div data-section="timeout"></div>
+            
+            <div data-section="indication">
                 <h3>Indication</h3>
-                <button data-section="indication" onclick="handleButtonClick(this, 'headache')">headache</button>
-                <button data-section="indication" onclick="handleButtonClick(this, 'meningismus with concern for meningitis')">meningismus</button>
-                <button data-section="indication" onclick="handleButtonClick(this, 'altered mental status')">altered mental status</button>
-                <textarea id="indicationText" placeholder="" onchange="updateRealTimeText('Indication', 'indicationText')"></textarea>
-
+                <button data-text="headache">headache</button>
+                <button data-text="meningismus with concern for meningitis">meningismus</button>
+                <button data-text="altered mental status">altered mental status</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="preparation">
                 <h3>Preparation</h3>
-                <button data-section="preparation" onclick="handleButtonClick(this, 'the patient was prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure')">sterile prep/drape</button>
-                <button data-section="preparation" onclick="handleButtonClick(this, 'patient was placed in the left lateral decubitus')">left lateral decubitus</button>
-                <button data-section="preparation" onclick="handleButtonClick(this, 'patient was placed in the right lateral decubitus')">right lateral decubitus</button>
-                <button data-section="preparation" onclick="handleButtonClick(this, 'the patient was sitting upright during the position')">sitting</button>
-                <textarea id="preparationText" placeholder="" onchange="updateRealTimeText('Preparation', 'preparationText')"></textarea>
-                
+                <button data-text="the patient was prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure">sterile prep/drape</button>
+                <button data-text="patient was placed in the left lateral decubitus">left lateral decubitus</button>
+                <button data-text="patient was placed in the right lateral decubitus">right lateral decubitus</button>
+                <button data-text="the patient was sitting upright during the position">sitting</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="technique">
                 <h3>Technique</h3>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the procedural area was anesthetized with lidocaine prior to the procedure')">lidocaine</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the intervertebral space at L3/L4 was accessed')">L3/L4</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the intervertebral space at L4/L5 was accessed')">L4/L5</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'a 20 gauge spinal needle was used')">20 g</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'a 22 gauge spinal needle was used')">22 g</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'an opening pressure was recorded and was *** cm H20')">opening pressure</button>
-                <textarea id="techniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'techniqueText')"></textarea>
-                
+                <button data-text="the procedural area was anesthetized with lidocaine prior to the procedure">lidocaine</button>
+                <button data-text="the intervertebral space at L3/L4 was accessed">L3/L4</button>
+                <button data-text="the intervertebral space at L4/L5 was accessed">L4/L5</button>
+                <button data-text="a 20 gauge spinal needle was used">20 g</button>
+                <button data-text="a 22 gauge spinal needle was used">22 g</button>
+                <button data-text="an opening pressure was recorded and was *** cm H20">opening pressure</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="attempts">
                 <h3>Attempts</h3>
-                <button data-section="attempts" onclick="handleButtonClick(this, 'the procedure was completed with 1 attempt')">1</button>
-                <button data-section="attempts" onclick="handleButtonClick(this, 'the procedure was completed with 2 attempts')">2</button>
-                <button data-section="attempts" onclick="handleButtonClick(this, 'the procedure was completed with 3 attempts')">3</button>
-                <button data-section="attempts" onclick="handleButtonClick(this, 'no CSF was returned during attempt(s) of lumbar puncture')">dry tap</button>
-                <textarea id="attemptsText" placeholder="" onchange="updateRealTimeText('Attempts', 'attemptsText')"></textarea>
-                
+                <button data-text="the procedure was completed with 1 attempt">1</button>
+                <button data-text="the procedure was completed with 2 attempts">2</button>
+                <button data-text="the procedure was completed with 3 attempts">3</button>
+                <button data-text="no CSF was returned during attempt(s) of lumbar puncture">dry tap</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="sample">
                 <h3>Sample</h3>
-                <button data-section="sample" onclick="handleButtonClick(this, 'four vials of clear CSF were sent to the lab')">clear</button>
-                <button data-section="sample" onclick="handleButtonClick(this, 'four vials of purulent CSF were sent to the lab')">purulent</button>
-                <button data-section="sample" onclick="handleButtonClick(this, 'four vials of blood-tinged CSF were sent to the lab')">bloody</button>
-                <textarea id="sampleText" placeholder="Enter the total volume of CSF removed" onchange="updateRealTimeText('Sample', 'sampleText')"></textarea>
-                
+                <button data-text="four vials of clear CSF were sent to the lab">clear</button>
+                <button data-text="four vials of purulent CSF were sent to the lab">purulent</button>
+                <button data-text="four vials of blood-tinged CSF were sent to the lab">bloody</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="complications">
                 <h3>Complications</h3>
-                <button data-section="complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'there was a mild amount of bleeding that was controlled at the time of procedure completion')">bleeding</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'the patient experienced pain despite anesthetic application')">pain</button>
-                <textarea id="complicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'complicationsText')"></textarea>
-                
+                <button data-text="none">none</button>
+                <button data-text="there was a mild amount of bleeding that was controlled at the time of procedure completion">bleeding</button>
+                <button data-text="the patient experienced pain despite anesthetic application">pain</button>
+                <textarea></textarea>
+            </div>
+            
+            <div data-section="provider">
                 <h3>Provider</h3>
-                <textarea id="providerText" placeholder="" onchange="updateRealTimeText('Provider', 'providerText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
             
             <!-- Macro Buttons Section -->
@@ -81,9 +97,10 @@
     </footer>
 
     <script src="jstest/shared.js"></script>
-    <script src="js/lumbarpuncturescript.js"></script>
+    <script src="jstest/general.js"></script>
     <script>
-        loadShared('proc_consent');
+        loadShared('consent');
+        loadShared('timeout');
     </script>
 </body>
 </html>

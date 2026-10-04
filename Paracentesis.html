@@ -15,63 +15,78 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Paracentesis</h2>
-            
-            <div class="input-group">
-                <div data-section="proc_consent"></div>
-                
+            <h2 class="title">Procedure Note: Paracentesis</h2>
+
+            <div data-section="consent"></div>
+
+            <div data-section="timeout"></div>
+
+            <div data-section="indication">
                 <h3>Indication</h3>
-                <button data-section="indication" onclick="handleButtonClick(this, 'diagnostic paracentesis for evaluation of fluid for signs of infection')">diagnostic para</button>
-                <button data-section="indication" onclick="handleButtonClick(this, 'therapeutic paracentesis for symptomatic management')">therapeutic para</button>
-                <textarea id="indicationText" placeholder="" onchange="updateRealTimeText('Indication', 'indicationText')"></textarea>
-            
+                <button data-text="diagnostic paracentesis for evaluation of fluid for signs of infection">diagnostic para</button>
+                <button data-text="therapeutic paracentesis for symptomatic management">therapeutic para</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="location">
                 <h3>Location</h3>
-                <button data-section="location" onclick="handleButtonClick(this, 'right abdomen')">right</button>
-                <button data-section="location" onclick="handleButtonClick(this, 'left abdomen')">left</button>
-                <textarea id="locationText" placeholder="" onchange="updateRealTimeText('Location', 'locationText')"></textarea>
-            
+                <button data-text="right abdomen">right</button>
+                <button data-text="left abdomen">left</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="ultrasound">
                 <h3>Ultrasound</h3>
-                <button data-section="ultrasound" onclick="handleButtonClick(this, 'dynamic ultrasound was used to visualize the fluid pocket and help guide needle placement')">US used</button>
-                <button data-section="ultrasound" onclick="handleButtonClick(this, 'Anatomic landmarks and clinical assessment was used to identify an appropriate location for needle insertion')">US not used</button>
-                <textarea id="ultrasoundText" placeholder="" onchange="updateRealTimeText('Ultrasound', 'ultrasoundText')"></textarea>
-            
+                <button data-text="dynamic ultrasound was used to visualize the fluid pocket and help guide needle placement">US used</button>
+                <button data-text="Anatomic landmarks and clinical assessment was used to identify an appropriate location for needle insertion">US not used</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="technique">
                 <h3>Technique</h3>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the abdomen was prepped and draped in a sterile fashion. 1% lidocaine was used to numb the skin, soft tissue and peritoneum. A needle and syringe was inserted with negative pressure aspiration until fluid was aspirated. Ascitic fluid was collected and sent for laboratory analysis. The needle was removed and no leaking was noted. A bandaid was placed over the puncture wound.')">diagnostic para</button>
-                <button data-section="technique" onclick="handleButtonClick(this, 'the abdomen was prepped and draped in a sterile fashion. 1% lidocaine was used to numb the skin, soft tissue and peritoneum. A needle and syringe was inserted with negative pressure aspiration until fluid was aspirated. A catheter was then inserted into the peritoneal cavity and was attached to a vacutainer with the drainage of ascitic fluid. The catheter was removed and no leaking was noted. A bandaid was placed over the puncture wound.')">therapeutic para</button>
-                <textarea id="techniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'techniqueText')"></textarea>
-                
+                <button data-text="the abdomen was prepped and draped in a sterile fashion. 1% lidocaine was used to numb the skin, soft tissue and peritoneum. A needle and syringe was inserted with negative pressure aspiration until fluid was aspirated. Ascitic fluid was collected and sent for laboratory analysis. The needle was removed and no leaking was noted. A bandaid was placed over the puncture wound.">diagnostic para</button>
+                <button data-text="the abdomen was prepped and draped in a sterile fashion. 1% lidocaine was used to numb the skin, soft tissue and peritoneum. A needle and syringe was inserted with negative pressure aspiration until fluid was aspirated. A catheter was then inserted into the peritoneal cavity and was attached to a vacutainer with the drainage of ascitic fluid. The catheter was removed and no leaking was noted. A bandaid was placed over the puncture wound.">therapeutic para</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="fluid">    
                 <h3>Fluid Details</h3>
-                <button data-section="fluid" onclick="handleButtonClick(this, 'straw colored ascites fluid was removed')">straw colored</button>
-                <button data-section="fluid" onclick="handleButtonClick(this, 'bloody ascites was removed')">bloody</button>
-                <button data-section="fluid" onclick="handleButtonClick(this, 'purulent appearing ascites was removed')">purulent</button>
-                <button data-section="fluid" onclick="handleButtonClick(this, 'one liter of fluid was removed from the abdomen')">1L removed</button>
-                <button data-section="fluid" onclick="handleButtonClick(this, 'two liters of fluid was removed from the abdomen')">2L removed</button>
-                <textarea id="fluidText" placeholder="" onchange="updateRealTimeText('Fluid Details', 'fluidText')"></textarea>
-                
+                <button data-text="straw colored ascites fluid was removed">straw colored</button>
+                <button data-text="bloody ascites was removed">bloody</button>
+                <button data-text="purulent appearing ascites was removed">purulent</button>
+                <button data-text="one liter of fluid was removed from the abdomen">1L removed</button>
+                <button data-text="two liters of fluid was removed from the abdomen">2L removed</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="complications">
                 <h3>Complications</h3>
-                <button data-section="complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'the patient experienced pain despite anesthetic application and/or procedural sedation')">pain</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'persistent leakage of ascites was noted following the procedure')">ascites leakage</button>
-                <button data-section="complications" onclick="handleButtonClick(this, 'the patient developed hypotension following the procedure')">hypotension</button>
-                <textarea id="complicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'complicationsText')"></textarea>
-                
+                <button data-text="none">none</button>
+                <button data-text="the patient experienced pain despite anesthetic application and/or procedural sedation">pain</button>
+                <button data-text="persistent leakage of ascites was noted following the procedure">ascites leakage</button>
+                <button data-text="the patient developed hypotension following the procedure">hypotension</button>
+                <textarea></textarea>
+            </div>
+
+            <div data-section="Provider">
                 <h3>Provider</h3>
-                <textarea id="providerText" placeholder="" onchange="updateRealTimeText('Provider', 'providerText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
         </div>
     </div>
     
     <footer></footer>
-    <script src="js/paracentesisscript.js"></script>
+    <script src="jstest/general.js"></script>
     <script src="jstest/shared.js"></script>
     <script>
-        loadShared('proc_consent');
+        loadShared('consent');
+        loadShared('timeout');
     </script>
 </body>
 </html>

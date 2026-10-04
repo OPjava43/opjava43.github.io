@@ -16,80 +16,79 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Procedure Note: Chest Tube</h2>
+            <h2 class="title">Procedure Note: Chest Tube</h2>
             
             <!-- Consent Section -->
-            <div class="input-group">
-                <div data-section="proc_consent"></div>
-            </div>
+            <div data-section="consent"></div>
+            <div data-section="timeout"></div>
 
             <!-- Indication Section -->
-            <div class="input-group">
+            <div data-section="Indication">
                 <h3>Indication</h3>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'right sided')">right</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'left sided')">left</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'pneumothorax')">pneumothorax</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'effusion')">effusion</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'hemothorax')">hemothorax</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'empyema')">empyema</button>
-                <button data-section="Indication" onclick="handleButtonClick(this, 'unstable trauma patient')">unstable trauma</button>
-                <textarea id="IndicationText" placeholder="" onchange="updateRealTimeText('Indication', 'IndicationText')"></textarea>
+                <button data-text="right sided">right</button>
+                <button data-text="left sided">left</button>
+                <button data-text="pneumothorax">pneumothorax</button>
+                <button data-text="effusion">effusion</button>
+                <button data-text="hemothorax">hemothorax</button>
+                <button data-text="empyema">empyema</button>
+                <button data-text="unstable trauma patient">unstable trauma</button>
+                <textarea></textarea>
             </div>
 
             <!-- Preparation Section -->
-            <div class="input-group">
+            <div data-section="Preparation">
                 <h3>Preparation</h3>
-                <button data-section="Preparation" onclick="handleButtonClick(this, 'the patient is prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure')">sterile prep/drape</button>
-                <button data-section="Preparation" onclick="handleButtonClick(this, 'the patient was preoxygenated prior to the chest tube placement')">preoxygenation</button>
-                <textarea id="PreparationText" placeholder="" onchange="updateRealTimeText('Preparation', 'PreparationText')"></textarea>
+                <button data-text="the patient is prepared with proper sterile technique and I used sterile gloves/mask throughout the procedure">sterile prep/drape</button>
+                <button data-text="the patient was preoxygenated prior to the chest tube placement">preoxygenation</button>
+                <textarea></textarea>
             </div>
 
             <!-- Technique Section -->
-            <div class="input-group">
+            <div data-section="Technique">
                 <h3>Technique</h3>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the procedural area is anesthetized with lidocaine prior to the procedure')">lidocaine</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'please see the procedural sedation note for details regarding the procedural sedation')">procedural sedation</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'the tube was placed in the midaxillary line')">midaxillary</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a large bore needle was placed to decompress the patient’s chest')">needle decompression</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a single lumen, pigtail catheter was placed')">pigtail catheter</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a single lumen, 8 Fr chest tube was placed')">8 Fr</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a single lumen, 9 Fr chest tube was placed')">9 Fr</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a single lumen, 28 Fr chest tube was placed')">28 Fr</button>
-                <button data-section="Technique" onclick="handleButtonClick(this, 'a sample of pleural fluid was sent for laboratory evaluation')">fluid sample sent</button>
-                <textarea id="TechniqueText" placeholder="" onchange="updateRealTimeText('Technique', 'TechniqueText')"></textarea>
+                <button data-text="the procedural area is anesthetized with lidocaine prior to the procedure">lidocaine</button>
+                <button data-text="please see the procedural sedation note for details regarding the procedural sedation">procedural sedation</button>
+                <button data-text="the tube was placed in the midaxillary line">midaxillary</button>
+                <button data-text="a large bore needle was placed to decompress the patient's chest">needle decompression</button>
+                <button data-text="a single lumen, pigtail catheter was placed">pigtail catheter</button>
+                <button data-text="a single lumen, 8 Fr chest tube was placed">8 Fr</button>
+                <button data-text="a single lumen, 9 Fr chest tube was placed">9 Fr</button>
+                <button data-text="a single lumen, 28 Fr chest tube was placed">28 Fr</button>
+                <button data-text="a sample of pleural fluid was sent for laboratory evaluation">fluid sample sent</button>
+                <textarea></textarea>
             </div>
 
             <!-- Confirmation/Post-procedure Section -->
-            <div class="input-group">
+            <div data-section="Confirmation">
                 <h3>Confirmation/Post-procedure</h3>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'an X-ray was ordered that demonstrated correct chest tube placement on my independent interpretation')">XRay</button>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'the chest tube was placed on low-continuous wall suction')">suction</button>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'the chest tube was placed to a water seal with inspiratory/expiratory variation noted')">water seal</button>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'the patient had notably improved vital signs following the placement of the chest tube')">hemodynamic improvement</button>
-                <button data-section="Confirmation" onclick="handleButtonClick(this, 'the patient had improved symptoms following the placement of the chest tube')">symptomatic improvement</button>
-                <textarea id="ConfirmationText" placeholder="" onchange="updateRealTimeText('Confirmation', 'ConfirmationText')"></textarea>
+                <button data-text="an X-ray was ordered that demonstrated correct chest tube placement on my independent interpretation">XRay</button>
+                <button data-text="the chest tube was placed on low-continuous wall suction">suction</button>
+                <button data-text="the chest tube was placed to a water seal with inspiratory/expiratory variation noted">water seal</button>
+                <button data-text="the patient had notably improved vital signs following the placement of the chest tube">hemodynamic improvement</button>
+                <button data-text="the patient had improved symptoms following the placement of the chest tube">symptomatic improvement</button>
+                <textarea></textarea>
             </div>
 
             <!-- Complications Section -->
-            <div class="input-group">
+            <div data-section="Complications">
                 <h3>Complications</h3>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'none')">none</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the patient experienced pain despite anesthetic application and/or procedural sedation')">pain</button>
-                <button data-section="Complications" onclick="handleButtonClick(this, 'the chest tube was not able to be correctly positioned in the pleural space')">unsuccessful procedure</button>
-                <textarea id="ComplicationsText" placeholder="" onchange="updateRealTimeText('Complications', 'ComplicationsText')"></textarea>
+                <button>none</button>
+                <button data-text="the patient experienced pain despite anesthetic application and/or procedural sedation">pain</button>
+                <button data-text="the chest tube was not able to be correctly positioned in the pleural space">unsuccessful procedure</button>
+                <textarea></textarea>
             </div>
 
             <!-- Provider Section -->
-            <div class="input-group">
+            <div data-section="Provider">
                 <h3>Provider</h3>
-                <textarea id="ProviderText" placeholder="" onchange="updateRealTimeText('Provider', 'ProviderText')"></textarea>
+                <textarea></textarea>
             </div>
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
         </div>
     </div>
@@ -98,9 +97,10 @@
     </footer>
 
     <script src="jstest/shared.js"></script>
-    <script src="js/chesttubescript.js"></script>
+    <script src="jstest/general.js"></script>
     <script>
-        loadShared('proc_consent');
+        loadShared('consent');
+        loadShared('timeout');
     </script>
 </body>
 </html>

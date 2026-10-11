@@ -158,7 +158,7 @@ function render() {
             const sectiontxt =  sectionEl.dataset.text ?? false;
 
 
-            if (sectionEl?.dataset.display === 'false') return;
+            
             if (sectionEl?.classList.contains('hidden')) return;
 
             const groups = [...sectionEl.querySelectorAll(`[data-section="${section}"] [data-group]`)];
@@ -173,8 +173,11 @@ function render() {
                         .map(child => {
 
                             if (child.closest('hidden')) return;
+                            if (child?.dataset.display === 'false') return;
+                            
                             let value = "";
                             const unit = child.closest('[data-unit]')?.dataset.unit ?? false;
+                            const leadtext = child.closest('[data-pretext]')?.dataset.pretext ?? false;
                             const text = child.dataset.text ?? false;
                             
                             if (child.tagName === "BUTTON" && child.classList.contains('pressed')){
@@ -188,6 +191,9 @@ function render() {
                                 let content = child.value.trim();
                                 if (unit && content){
                                     content += " " + unit.trim();
+                                }
+                                if (leadtext && content){
+                                    content = leadtext.trim() + " " + content;
                                 }
                                 if (text){
                                     content = text

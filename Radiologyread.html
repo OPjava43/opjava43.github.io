@@ -16,78 +16,85 @@
     
     <div class="container">
         <div class="form-section">
-            <h2>Radiology Interpretation</h2>
+            <h2 class="title">Radiology Interpretation</h2>
             
             <!-- Imaging Type Section -->
-            <div class="input-group">
+            <div data-section="Imaging type">
                 <h3>Imaging type</h3>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'X-ray')">XR</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'CT scan without contrast')">CT w/o</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'CT scan with contrast')">CT w/</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'MRI')">MRI</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'ultrasound')">US</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'head')">head</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'neck')">neck</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'chest')">chest</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'abdomen and pelvis')">abdomen/pelvis</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'C-spine')">C-spine</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'T-spine')">T-spine</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'L-spine')">L-spine</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'upper extremity')">upper extremity</button>
-                <button data-section="Imaging type" onclick="handleButtonClick(this, 'lower extremity')">lower extremity</button>
+                <button data-text="X-ray">XR</button>
+                <button data-text="CT scan without contrast">CT w/o</button>
+                <button data-text="CT scan with contrast">CT w/</button>
+                <button data-text="MRI">MRI</button>
+                <button data-text="ultrasound">US</button>
+                <button data-text="head">head</button>
+                <button data-text="neck">neck</button>
+                <button data-text="chest">chest</button>
+                <button data-text="abdomen and pelvis">abdomen/pelvis</button>
+                <button data-text="C-spine">C-spine</button>
+                <button data-text="T-spine">T-spine</button>
+                <button data-text="L-spine">L-spine</button>
+                <button data-text="upper extremity">upper extremity</button>
+                <button data-text="lower extremity">lower extremity</button>
                 <textarea id="ImagingTypeText" placeholder="" onchange="updateRealTimeText('Imaging type', 'ImagingTypeText')"></textarea>
             </div>
 
             <!-- Time of Interpretation Section -->
-            <div class="input-group">
+            <div data-section="Interpretationtime">
                 <h3>Time of interpretation</h3>
-                <button data-section="Time of interpretation" onclick="handleTimeButtonClick(this)">Now</button>
-                <textarea id="TimeOfInterpretationText" placeholder="" onchange="updateRealTimeText('Time of interpretation', 'TimeOfInterpretationText')"></textarea>
+                <button onclick="timeNow('interpretationTimeText')" data-display = "false">Now</button>
+                <textarea id="interpretationTimeText"></textarea>
             </div>
 
             <!-- Interpretation Sections -->
-            <div class="input-group">
-                <h3>Interpretation</h3>
+            <div data-section="Interpretation/Findings">
+                <h3>Interpretation/Findings</h3>
                 <!-- Head Findings -->
                 <i>Head</i>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no acute bleed noted')">neg bleed</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no shift noted')">neg shift</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'normal sized ventricles noted')">normal ventricles</button>
+                <button data-text="no acute bleed noted">neg bleed</button>
+                <button data-text="no shift noted">neg shift</button>
+                <button data-text="normal sized ventricles noted">normal ventricles</button>
                 
                 <!-- Spine Findings -->
                 <br><i>Spine</i>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no acute fracture')">neg fracture</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no retropulsion')">neg retropulsion</button>
+                <button data-text="no acute fracture">neg fracture</button>
+                <button data-text="no retropulsion">neg retropulsion</button>
                 
                 <!-- Chest Findings -->
                 <br><i>Chest</i>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no pneumonia identified')">neg PNA</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no pneumothorax noted')">neg PTX</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'normal mediastinum')">normal mediastinum</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no signs of pulmonary edema')">neg pulm edema</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no significant PE noted')">neg PE</button>
+                <button data-text="no pneumonia identified">neg PNA</button>
+                <button data-text="no pneumothorax noted">neg PTX</button>
+                <button data-text="normal mediastinum">normal mediastinum</button>
+                <button data-text="no signs of pulmonary edema">neg pulm edema</button>
+                <button data-text="no significant PE noted">neg PE</button>
                 
                 
                 <!-- Abdomen Findings -->
                 <br><i>Abdomen</i>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no acute obstruction')">neg obstruction</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no fat stranding or abscess noted, reassuring against infection')">neg infection</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no hydronephrosis noted')">neg hydronephrosis</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no kidney stones noted')">neg kidney stones</button>
+                <button data-text="no acute obstruction">neg obstruction</button>
+                <button data-text="no fat stranding or abscess noted, reassuring against infection">neg infection</button>
+                <button data-text="no hydronephrosis noted">neg hydronephrosis</button>
+                <button data-text="no kidney stones noted">neg kidney stones</button>
                 
                 <!-- Extremity Findings -->
                 <br><i>Extremity</i>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'no acute fracture or dislocation')">neg fracture/dislocation</button>
-                <button data-section="Interpretation" onclick="handleButtonClick(this, 'veins are compressible with no signs of DVT')">neg DVT</button>
+                <button data-text="no acute fracture or dislocation">neg fracture/dislocation</button>
+                <button data-text="veins are compressible with no signs of DVT">neg DVT</button>
                 
-                <textarea id="InterpretationText" placeholder="" onchange="updateRealTimeText('Interpretation', 'InterpretationText')"></textarea>
+                <textarea placeholder=""></textarea>
+                <h4>Specific Observations</h4>
+                <textarea placeholder="Include specific observations noted based on visualizing the image(s)"></textarea>
+            </div>
+            
+            <div data-section="Assessment/Plan">
+                <h3>Assessment & Plan</h3>
+                <textarea style = "min-height: 54px;" placeholder="Professional clinical judgment regarding those findings and how the interpretation influenced diagnosis, treatment, or disposition"></textarea>
             </div>
         </div>
 
         <!-- Output Section -->
         <div class="output-section">
             <div id="outputArea"></div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
             <button onclick="clearOutput()">Clear</button>
         </div>
     </div>
@@ -95,6 +102,7 @@
      <footer>
     </footer>
 
-    <script src="js/radiologyreadscript.js"></script>
+    <script src="jstest/general.js"></script>
+    <script src="jstest/present.js"></script>
 </body>
 </html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abscess Incision and Drainage</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="form-section">
+            <h2 class="title">Hemorrhagic Stroke Management</h2>
+            <div data-section="welltime">    
+                <h3>Last Known Well Time</h3>
+                <textarea></textarea>
+            </div>
+            <div data-section="risk/reversal">    
+                <h3>Bleeding Risk / Reversal</h3>
+                <section class="indented-section">
+                <div data-group="anticoagulant" data-toggle="false">    
+                    <h3>Anticoagulant</h3>
+                    <button data-text="not on an anticoagulant, reversal is not indicated">None</button>
+                    <button data-text="difficult or unable to determine anticoagulation status">UTD</button>
+                    <div data-pretext="patient is on">
+                        <button>Apixaban (Eliquis)</button>
+                        <button>Rivaroxaban (Xarelto)</button>
+                        <button>Warfarin (coumadin)</button>
+                        <button>Dabigatran (Pradaxa)</button>
+                        <button>Plavix (Clopidogrel)</button>
+                        <button>Heparin</button>
+                        <button data-text="low molecular weight heparin (enoxaparin)">LMWH (Lovenox)</button>
+                        <textarea placeholder = ""></textarea>
+                    </div>
+                </div>
+                <div data-group="labs" data-toggle="false">
+                    <h3>Labs Reviewed/Evaluated</h3>
+                    <button data-text="platelet count">Platelet</button>
+                    <button>PT/INR</button>
+                    <textarea placeholder = ""></textarea>
+                </div>
+                <div data-group="treatment" data-toggle="false">
+                    <h3>Reversal/Treatment</h3>
+                    <button data-text="Kcentra administered for reversal of anticoagulation">Kcentra</button>
+                    <button data-text="FFP administered for reversal of anticoagulation">FFP</button>
+                    <button data-text="Vitamin K (phytonadione) administered for reversal of anticoagulation">Vit K</button>
+                    <button data-text="idarucizumab (Praxbind) administered for reversal of anticoagulation">Praxbind</button>
+                    <button data-text="Protamine administered for reversal of anticoagulation">Protamine</button>
+                    <button data-text="platelets administered to address low platelet count">Platelets</button>
+                    <textarea placeholder="Additional info"></textarea>
+                </div>
+                </section>
+            </div>
+
+            <div data-section="BPmanagement">    
+                <h3>BP Management</h3>
+                <section class="indented-section">
+                <div data-group="BPgoal" data-toggle="false">    
+                    <h3>BP Goal</h3>
+                    <button data-text="SBP <140mmHg, DBP <90mmHg">&lt;140/90</button>
+                    <button data-text="SBP <160mmHg, DBP <100mmHg">&lt;160/100</button>
+                    <textarea placeholder = ""></textarea>
+                </div>
+                <div data-group="BPcontrol" data-toggle="false">
+                    <h3>BP Control</h3>
+                    <button data-text="Labetalol administered for BP control">Labetalol</button>
+                    <button data-text="Nicardipine administered for BP control">Nicardipine</button>
+                    <button data-text="medication for BP management not requiredn">N/A</button>
+                    <button data-reveal="nonegiven" data-display = "false">None Given</button>
+                    <div id="nonegiven" class="hidden reveal-target">
+                        <p class="inline">Reason for None Given:</p>
+                        <input data-pretext="BP Control medication not given " type="text">
+                    </div>
+                    <textarea placeholder = ""></textarea>
+                </div>
+
+                </section>
+            </div>
+
+            <div data-section="disposition">    
+                <h3>Disposition</h3>
+                <button data-text="goals of care discussed">Goals of care discussed</button>
+                <button data-text="transitioned to CMO">Transitioned to CMO</button>
+                <button data-text="Palliative consult obtained">Palliative consult</button>
+                <button data-text="admitted">Admitted</button>
+                <button data-text="facilitated a transfer to a hospital with neurosurgery capabilities">Tx to NSGY capable</button>
+            </div>
+
+        </div>
+
+        <div class="output-section">
+            <div id="outputArea"></div>
+            <button onclick="copyOutput()">Copy to Clipboard</button>
+            <button onclick="clearOutput()">Clear</button>
+
+            <div class="related-procedures">
+                <p>
+                    <p><i>Note</i>: The BlueWater non-traumatic hemorrhagic stroke care quality bundle has the following components for care of patients with ischemic stroke:<br>
+                        1. Door to CT in 25min (15min for MCH) or less if w/in 3.5hrs (210min) LKW<br>
+                        2. Timely anticoagulation reversal agent w/in 60min* of CT read, if applicable<br>
+                        3. BP control medication started w/in 60min of CT read if hypertensive OR from time of noted hypertension if not hypertensive before CT read time 
+                        (Target for SAH if SBP &ge;140 or DBP of &ge;90, and 2) ICH if SBP &ge;160 or DBP &ge;100 )<br>
+                        4. No SBP&lt;120 during first 6 hours post antihypertensive treatment (effective 1/1/27)<br>
+                        <br>
+
+                        ICH score documented - NOT INCLUDED in bundle but recommended<br><br>
+                        NOTE: Cases in which LKW exceeds 24 hrs are excluded from the measure<br><br>
+                        *For 2026 and prior, the timely anticoagulation goal was &lt;30min; the updated metric of &lt;60min will be effective 1/1/27 <br><br>
+                        Link to MDCalc for ICH Score<br>
+                        <a href="https://www.mdcalc.com/calc/402/intracerebral-hemorrhage-ich-score">ICH Score</a>
+
+
+                    </p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
+    <script src="jstest/general.js"></script>
+    <script>
+        NOTE_INTRO = 'Due to a concern for hemorrhagic stroke, the following were reviewed and addressed after arrival to the emergency department:'
+    </script>
+</body>
+</html>

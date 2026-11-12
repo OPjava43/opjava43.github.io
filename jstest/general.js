@@ -57,12 +57,14 @@ function btnClick(btn) {
 
 
 function togglegroup(btn, group) {
-
-    const currentlyPressed = document.querySelector(
-        `[data-group="${group}"] button.pressed`
-    );
-    if (currentlyPressed && currentlyPressed !== btn) {
-        btnClick(currentlyPressed)
+    const groupEl = document.querySelector(`[data-group="${group}"]`);
+    if(groupEl.dataset.toggle !== "false"){
+        const currentlyPressed = document.querySelector(
+            `[data-group="${group}"] button.pressed`
+        );
+        if (currentlyPressed && currentlyPressed !== btn) {
+            btnClick(currentlyPressed)
+        }
     }
     btnClick(btn);
 }
@@ -167,6 +169,7 @@ function render() {
             const datagroups = targets
                 .map(group => {
                     const grouptext =  group.dataset.text ?? false;
+                    const groupname = group !== sectionEl ? group.querySelector('h3')?.textContent : false;
 
                     const children = [...group.querySelectorAll('button, textarea, input')]
                         .filter(child => group !== sectionEl || !child.closest('[data-group]'))
@@ -180,8 +183,9 @@ function render() {
                             const leadtext = child.closest('[data-pretext]')?.dataset.pretext ?? false;
                             const text = child.dataset.text ?? false;
                             
+                            
                             if (child.tagName === "BUTTON" && child.classList.contains('pressed')){
-                                const btnVal = (child.dataset.text ?? child.innerText.trim()) + (unit ? ' ' + unit.trim() : '');
+                                const btnVal = (leadtext ? leadtext.trim() + ' ' : '') + (child.dataset.text ?? child.innerText.trim()) + (unit ? ' ' + unit.trim() : '');
                                                           
                                 if (btnVal){
                                     value = btnVal;
@@ -215,11 +219,15 @@ function render() {
                         value = grouptext.replace(/{{}}/g, value)
                     }
 
+                    if (groupname){
+                        value = "\n_" + groupname.trim() + "_: " + value;
+                    }
+
                     return value;      
 
             })
             .filter(Boolean)
-            .join(', ');
+            .join('');
 
             let value = datagroups;
 

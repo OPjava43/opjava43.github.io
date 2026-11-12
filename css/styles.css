@@ -215,6 +215,12 @@ main {
     width: 45%;
 }
 
+.indented-section {
+    padding-left: 15px; /* Shifts everything inside 40px to the right */
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
 #outputArea {
     background-color: #f9f9f9;
     padding: 10px;
